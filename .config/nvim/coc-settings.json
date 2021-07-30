@@ -1,0 +1,9 @@
+{
+    "diagnostic.checkCurrentLine": true,
+    "tslint.autoFixOnSave": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "Markdown"
+    ]
+}

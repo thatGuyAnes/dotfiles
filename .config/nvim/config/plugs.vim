@@ -7,27 +7,30 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                      " Completion
+Plug 'preservim/nerdtree'                                            " NERDTree
+                                                                     
+Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }                 " Fuzzy Search
+Plug 'junegunn/fzf.vim'                                              
+                                                                     
+Plug 'psliwka/vim-smoothie'                                          " Smooth Scrolling <C-d>&<C-U>
+Plug 'jiangmiao/auto-pairs'                                          " Insert Closing pairs
+Plug 'sheerun/vim-polyglot'                                          " Language
+Plug 'itchyny/lightline.vim'                                         " Status line
+Plug 'tpope/vim-fugitive'                                            " Git wrapper
+Plug 'ryanoasis/vim-devicons'                                        " Icons
+Plug 'Yggdroot/indentLine'                                           " Add Indentation's Lines
+Plug 'tpope/vim-commentary'                                          " Comments lines of code or block
+Plug 'RRethy/vim-illuminate'                                         " Highlight matching words under cursor
+Plug 'honza/vim-snippets'                                            " Code snippets
+Plug 'unblevable/quick-scope'                                        " Character highligh when using f,F,t,T
+Plug 'junegunn/limelight.vim'                                        " Focus block of code
 
-Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-Plug 'psliwka/vim-smoothie'
-Plug 'jiangmiao/auto-pairs'
-Plug 'sheerun/vim-polyglot'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'ryanoasis/vim-devicons'
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-commentary'
-Plug 'RRethy/vim-illuminate'
-Plug 'honza/vim-snippets'
-
-" Themes
-Plug 'overcache/NeoSolarized'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'morhetz/gruvbox'
-Plug 'tomasr/molokai'
-call plug#end()
+" Themes                                                             
+Plug 'overcache/NeoSolarized'                                        "
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }                   "
+Plug 'bluz71/vim-nightfly-guicolors'                                 "
+Plug 'morhetz/gruvbox'                                               "
+Plug 'tomasr/molokai'                                                "
+Plug 'drewtempelmeyer/palenight.vim'                                 "
+call plug#end()                                                      

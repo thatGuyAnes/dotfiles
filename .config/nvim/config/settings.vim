@@ -18,6 +18,7 @@ set relativenumber                      "
 set clipboard=unnamedplus               "
 set noshowmode                          "
 set laststatus=2                        "
+set signcolumn=yes
 "" Coc recommendation
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c                        "
@@ -29,6 +30,11 @@ set conceallevel=0 " shows backticks in md files
 au! BufWritePost $MYVIMRC source %
 set background=dark
 set termguicolors
+
+" hi Normal guibg=NONE
+" Enable lightline colorscheme
+let g:lightline = { 'colorscheme': 'palenight' }
+
 
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()

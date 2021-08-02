@@ -12,4 +12,4 @@ let g:coc_global_extensions = [ 'coc-tsserver', 'coc-tslint-plugin', 'coc-json',
 
 " IndentLine
 let g:indentLine_char = '│'
-" let g:indentLine_setColors = 0
+let g:indentLine_setColors = 0

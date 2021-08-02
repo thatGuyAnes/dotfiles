@@ -12,8 +12,8 @@ source ~/.config/nvim/config/plugins-config.vim  "
 " let g:neosolarized_visibility = "low"
 " let g:neosolarized_contrast = "low"
 " let g:molokai_original = 1
-colorscheme molokai
-hi Normal guibg=NONE
+colorscheme gruvbox
+" hi Normal guibg=NONE
 
 " Enable lightline colorscheme
 " let g:lightline = { 'colorscheme': '' }

@@ -22,6 +22,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-commentary'
 Plug 'RRethy/vim-illuminate'
+Plug 'honza/vim-snippets'
 
 " Themes
 Plug 'overcache/NeoSolarized'

@@ -3,7 +3,13 @@
     "tslint.autoFixOnSave": true,
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
+        "scss",
+        "html",
         "markdown",
         "Markdown"
-    ]
+    ],
+    "html.autoClosingTags": true,
+    "eslint.probe": ["javascript", "javascriptreact", "typescript",
+        "typescriptreact", "html"],
+    "coc.preferences.formatOnType": true
 }

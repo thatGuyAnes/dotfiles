@@ -32,3 +32,4 @@ nnoremap <silent> <C-p> :Files<CR>
 
 " Toggle Tree
 map <silent> <C-n> :NERDTreeToggle<CR>
+map <leader>nf :NERDTreeFind<CR>

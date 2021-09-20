@@ -2,16 +2,24 @@
 set background=dark
 " let g:material_termianl_italics = 1
 " let g:material_theme_style = 'lighter'
-" Enable lightline colorscheme
-" syntax enable
-colorscheme nebulous
-" set termguicolors
+syntax enable
+set termguicolors
+" let g:gruvbox_italicize_comments = 1
+" gruvbox_contrast = soft, medium, hard
+" let g:gruvbox_contrast_light = 'hard'
+let g:gruvbox_italic=1
+
+colorscheme gruvbox
+
 " let g:nb_style = 'night'
-hi Normal guibg=none
-hi LineNr guibg=none
-hi Signcolumn guibg=none 
-hi Visual guifg=grey
-hi Visual guibg=white
+
+hi Normal guibg=none ctermbg=none
+hi LineNr guibg=none ctermbg=none
+hi Signcolumn guibg=none  ctermbg=none
+hi Visual guifg=grey ctermfg=grey
+hi Visual guibg=white ctermbg=white
 
 " hi Visual gui=none
 " hi EndOfBuo fer guibg=none
+
+

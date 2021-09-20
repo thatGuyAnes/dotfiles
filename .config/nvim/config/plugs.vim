@@ -3,13 +3,12 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   "autocmd VimEnter * PlugInstall
-  "autocmd VimEnter * PlugInstall | source $MYVIMRC
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                      " Completion
 Plug 'preservim/nerdtree'                                            " NERDTree
-
 Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }                 " Fuzzy Search
 Plug 'junegunn/fzf.vim'                                              
 Plug 'psliwka/vim-smoothie'                                          " Smooth Scrolling <C-d>&<C-U>
@@ -26,8 +25,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Themes                                                             
+Plug 'mboughaba/i3config.vim'                                        " Syntax highlighting for i3 conf file
 Plug 'overcache/NeoSolarized'                                        "
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }                   "
 Plug 'bluz71/vim-nightfly-guicolors'                                 "

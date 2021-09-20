@@ -1,5 +1,5 @@
-set nowrap                              "  
-set tabstop=4                           "
+set nowrap                              " Disable text wrapping  
+set tabstop=4                           " tab is 4 spaces 
 set softtabstop=4                       "
 set shiftwidth=4                        "
 set expandtab                           "
@@ -32,10 +32,6 @@ set termguicolors
 " set winblend=100
 set guicursor=i-ci:ver100-iCursor-blinkwait300-blinkon200-blinkoff150
 
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_lightline = 1 
-let g:webdevicons_conceal_nerdtree_brackets = 1
 
 let g:html_indent_tags = 'li\|p'        " Treat <li> and <p> tags like the block tags they are.
 
@@ -43,6 +39,9 @@ let g:html_indent_tags = 'li\|p'        " Treat <li> and <p> tags like the block
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+" Vertical resize
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif

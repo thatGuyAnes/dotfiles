@@ -15,9 +15,9 @@
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
-# Set VGA screen to right of eDP-1
+# Set VGA screen to left of eDP-1
 # --no-startup-id disables startup notification, no hourglass on startup.
-exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1
+# exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1
 
 # wallpaper
 # Triss Portrait by AstorAlexander on Deviantart

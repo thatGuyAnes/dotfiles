@@ -1,3 +1,8 @@
+" if !exists('g:loaded_lightline')
+"     echom "LIGHTLINE NOT LOADED"
+"     finish
+" endif
+
 " lightline settings.
 let g:lightline = {
     \ 'colorscheme': 'gruvbox',
@@ -15,23 +20,6 @@ let g:lightline = {
 let g:lightline.inactive = {
     \ 'left': [ [ 'filename' ] ],
     \ 'right': [ ['filetype']] }
-
-
-" let g:lightline = {
-"       \ 'mode_map': {
-"         \ 'n' : 'N',
-"         \ 'i' : 'I',
-"         \ 'R' : 'R',
-"         \ 'v' : 'V',
-"         \ 'V' : 'VL',
-"         \ "\<C-v>": 'VB',
-"         \ 'c' : 'C',
-"         \ 's' : 'S',
-"         \ 'S' : 'SL',
-"         \ "\<C-s>": 'SB',
-"         \ 't': 'T',
-"         \ },
-"       \ }
 
 function! LightlineFilename()
     return &ft ==# 'vimfiler' ? vimfiler#get_status_string() :

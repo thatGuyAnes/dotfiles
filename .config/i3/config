@@ -163,7 +163,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assign program to workspace
 assign [class="Firefox" instance="Navigator"] → $firefox
-assign [class="URxvt" instance="urxvt"] → $term
+# assign [class="URxvt" instance="urxvt"] → $term
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -17,11 +17,11 @@ autocmd FileType scss setl iskeyword+=@-@
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -148,4 +148,4 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " " Do default action for previous item.
 " nnoremap <silent><nowait> ck  :<C-u>CocPrev<CR>
 " " Resume latest coc list.
-" nnoremap <silent><nowait> cp  :<C-u>CocListResume<CR> 
+" nnoremap <silent><nowait> cp  :<C-u>CocListResume<CR>

@@ -28,7 +28,6 @@ set updatetime=300                      " faster completion.
 au BufEnter * set fo-=c fo-=r fo-=o     " set formatoptions-=rco, simply stops having comment on new line.
 set conceallevel=0                      " shows backticks in md files.
 au! BufWritePost $MYVIMRC source %      " Saving in init.vim source it.
-set termguicolors
 " set winblend=100
 set guicursor=i-ci:ver100-iCursor-blinkwait300-blinkon200-blinkoff150
 
@@ -42,9 +41,10 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Vertical resize
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
-if exists("g:loaded_webdevicons")
-  call webdevicons#refresh()
-endif
+
+" if exists("g:loaded_webdevicons")
+"   call webdevicons#refresh()
+" endif
 
 " syntax on                                 
 " set mouse+=a                                 

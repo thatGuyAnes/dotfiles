@@ -14,6 +14,8 @@ inoremap kj <Esc>
 nnoremap vw viw
 nnoremap cw ciw
 nnoremap dw diw
+nnoremap V v$
+nnoremap vv V
 
 " Better tabbing indentation
 vnoremap < <gv
@@ -33,3 +35,5 @@ nnoremap <silent> <C-p> :Files<CR>
 " Toggle Tree
 map <silent> <C-n> :NERDTreeToggle<CR>
 map <leader>nf :NERDTreeFind<CR>
+
+

@@ -9,6 +9,8 @@ nnoremap <leader>l :wincmd l<CR>
 " Better escape
 inoremap jk <Esc>
 inoremap kj <Esc>
+inoremap JK <Esc>
+inoremap KJ <Esc>
 
 " Better editing
 nnoremap vw viw
@@ -28,6 +30,14 @@ nnoremap <leader>fw :wincmd \|<CR>
 " Commentary
 nnoremap <leader>/ :Commentary<CR>
 vnoremap <leader>/ :Commentary<CR>
+
+" Surround
+" `ysiw`             ----> surround word
+" `cs`<OLD><NEW>     ----> change surround
+" `cst`<NEW>         ----> change surround
+" `yss`                ----> surround entire line
+" `ds`                 ----> delete surround
+" VISUAL + S + <NEW> ----> surround selection
 
 " File explorer.
 nnoremap <silent> <C-p> :Files<CR>

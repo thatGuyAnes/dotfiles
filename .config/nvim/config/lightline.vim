@@ -5,7 +5,7 @@
 
 " lightline settings.
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
+    \ 'colorscheme': 'dracula',
     \ 'active': {
     \   'left': [ ['mode'],
     \           [ 'readonly', 'filename', 'modified' ] ],
@@ -25,7 +25,7 @@ function! LightlineFilename()
     return &ft ==# 'vimfiler' ? vimfiler#get_status_string() :
           \  &ft ==# 'unite' ? unite#get_status_string() :
           \ expand('%:F') !=# '' ? expand('%:F') : '[No Name]'
-    " return expand('%F')
+    " return expand('%F') jd
 endfunction
 
 function! LightLineModified() abort

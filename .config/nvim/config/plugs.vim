@@ -17,6 +17,7 @@ Plug 'itchyny/lightline.vim'                                         " Status li
 Plug 'tpope/vim-fugitive'                                            " Git wrapper
 Plug 'Yggdroot/indentLine'                                           " Add Indentation's Lines
 Plug 'tpope/vim-commentary'                                          " Comments lines of code or block
+Plug 'tpope/vim-surround'
 Plug 'unblevable/quick-scope'                                        " Character highligh when using f,F,t,T
 Plug 'ThePrimeagen/vim-be-good'                                      " vim game to practice basic mvts
 Plug 'kyazdani42/nvim-web-devicons'
@@ -25,6 +26,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mboughaba/i3config.vim'                                        " Syntax highlighting for i3 conf file
 Plug 'overcache/NeoSolarized'                                        "
-Plug 'morhetz/gruvbox'                                               "
+Plug 'gruvbox-community/gruvbox'                                               "
+Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()                                                      

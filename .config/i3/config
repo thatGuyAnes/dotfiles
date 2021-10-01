@@ -8,7 +8,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Set VGA screen to left of eDP-1
 # --no-startup-id disables startup notification, no hourglass on startup.
-# exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1
+exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1
 
 # wallpaper
 # Triss Portrait by AstorAlexander on Deviantart
@@ -17,7 +17,7 @@ exec --no-startup-id feh --bg-scale $HOME/Downloads/Triss-Merigold36.jpg
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# is used in the bar {} block below.:q
 font pango:ubuntu 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -201,6 +201,7 @@ for_window [window_role="task_dialog"]              floating enable
 #       xprop | grep -i 'class'
 for_window [class="File-roller"]                    floating enable
 for_window [class="Galculator"]                     floating enable
+for_window [class="Totem"]                          floating enable
 # for_window [class="Org.gnome.Nautilus"]              floating enable
 
 

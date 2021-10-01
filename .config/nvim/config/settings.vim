@@ -12,7 +12,7 @@ set incsearch                           "
 set hlsearch                            "
 set ignorecase                          "
 set smartcase                           "
-set scrolloff=9                         "
+set scrolloff=3                         "
 set colorcolumn=80                      "
 set splitright                          " Split to right
 set splitbelow                          " Split to bottom
@@ -31,6 +31,9 @@ au! BufWritePost $MYVIMRC source %      " Saving in init.vim source it.
 " set winblend=100
 set guicursor=i-ci:ver100-iCursor-blinkwait300-blinkon200-blinkoff150
 
+" set sidescroll=5
+" set listchars+=precedes:<,extends:>
+
 
 let g:html_indent_tags = 'li\|p'        " Treat <li> and <p> tags like the block tags they are.
 
@@ -38,13 +41,15 @@ let g:html_indent_tags = 'li\|p'        " Treat <li> and <p> tags like the block
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+" autocmd Filetype html setlocal ts=2 sw=2 expandtab        " Indent 2 spaces in HTML
+
 " Vertical resize
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 
-" if exists("g:loaded_webdevicons")
-"   call webdevicons#refresh()
-" endif
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
 
 " syntax on                                 
-" set mouse+=a                                 
+set mouse+=a                                 

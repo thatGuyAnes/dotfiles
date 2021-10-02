@@ -1,3 +1,19 @@
+" lsp provider to find the cursor word definition and reference
+nnoremap <silent> gh :Lspsaga lsp_finder<CR>
+" code action
+nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
+" show hover doc
+nnoremap <silent>K :Lspsaga hover_doc<CR>
+" show signature help in insert mode
+" inoremap <silent> gs :Lspsaga signature_help<CR>
+inoremap <silent> <C-k> <Cmd>Lspsaga signature_help<CR>
+" nnoremap <silent> gs :Lspsaga signature_help<CR>
+" rename
+nnoremap <silent>gr :Lspsaga rename<CR>
+" preview definition
+nnoremap <silent> gd :Lspsaga preview_definition<CR>
+
 lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
@@ -22,14 +38,16 @@ local on_attach = function(client, bufnr)
     local function buf_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
-    vim.cmd('command! LspDec lua vim.lsp.buf.declaration()')
+    -- ### Use lspsaga instead
+    --vim.cmd('command! LspDec lua vim.lsp.buf.declaration()')
     vim.cmd('command! LspDef lua vim.lsp.buf.definition()')
-    vim.cmd('command! LspHover lua vim.lsp.buf.hover()')
+    --vim.cmd('command! LspHover lua vim.lsp.buf.hover()')
     local options = { noremap = true, silent = true }
     -- Mappings
-    buf_keymap('n', 'gD', ':LspDec<CR>', options)
-    buf_keymap('n', 'gd', ':LspDef<CR>', options)
-    buf_keymap('n', 'K', ':LspHover<CR>', options)
+    -- ### Use lspsaga instead
+    buf_keymap('n', 'gD', ':LspDef<CR>', options)
+    --buf_keymap('n', 'gd', ':LspDef<CR>', options)
+    --buf_keymap('n', 'K', ':LspHover<CR>', options)
 
     -- format on save
     if client.resolved_capabilities.document_formatting then
@@ -122,47 +140,10 @@ nvim_lsp.diagnosticls.setup {
         formatFiletypes = formatFiletypes
     }
 }
--- custom diagnostic signs
--- icon
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    -- This sets the spacing and the prefix, obviously.
-    virtual_text = {
-      spacing = 4,
-      prefix = ''
-    }
-  }
-)
 
- protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-  }
-
+-- ############################################################################
+-- Completion
+-- ############################################################################
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -224,4 +205,61 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", {expr = true, silent = true})
 vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm("<CR>")]], {expr = true, silent = true})
 vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close("<C-e>")]], {expr = true, silent = true})
+
+-- custom diagnostic signs
+-- icon
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    underline = true,
+    -- This sets the spacing and the prefix, obviously.
+    virtual_text = {
+      spacing = 4,
+      prefix = ''
+    }
+  }
+)
+
+ protocol.CompletionItemKind = {
+    '', -- Text
+    '', -- Method
+    '', -- Function
+    '', -- Constructor
+    '', -- Field
+    '', -- Variable
+    '', -- Class
+    'ﰮ', -- Interface
+    '', -- Module
+    '', -- Property
+    '', -- Unit
+    '', -- Value
+    '', -- Enum
+    '', -- Keyword
+    '﬌', -- Snippet
+    '', -- Color
+    '', -- File
+    '', -- Reference
+    '', -- Folder
+    '', -- EnumMember
+    '', -- Constant
+    '', -- Struct
+    '', -- Event
+    'ﬦ', -- Operator
+    '', -- TypeParameter
+  }
+-- lspsaga UI
+local saga = require 'lspsaga'
+-- Default
+-- saga.init_lsp_saga()
+saga.init_lsp_saga {
+     use_saga_diagnostic_sign = true,
+     error_sign = '',
+     warn_sign = '',
+     hint_sign = '',
+     infor_sign = '',
+     border_style = "single"
+}
 EOF
+
+
+
+

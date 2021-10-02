@@ -25,10 +25,11 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'mboughaba/i3config.vim'                                        " Syntax highlighting for i3 conf file
 Plug 'overcache/NeoSolarized'                                        "
-Plug 'gruvbox-community/gruvbox'                                               "
+Plug 'gruvbox-community/gruvbox'                                     "
 Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
 call plug#end()                                                      

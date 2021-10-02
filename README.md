@@ -15,8 +15,6 @@
     * [telescope](https://github.com/nvim-telescope/telescope.nvim)
     * fzf, nvim-tree, lualine ...
 
-What I achieved so far
-
 ![Alt text](pics/Screenshot_from_2021-10-02.png)
 ---
 

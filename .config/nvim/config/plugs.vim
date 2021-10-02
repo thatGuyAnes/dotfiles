@@ -30,5 +30,5 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'neovim/nvim-lspconfig'
-
+Plug 'hrsh7th/nvim-compe'
 call plug#end()                                                      

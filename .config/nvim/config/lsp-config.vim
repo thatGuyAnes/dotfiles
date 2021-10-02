@@ -160,5 +160,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     'ﬦ', -- Operator
     '', -- TypeParameter
   }
-
 EOF

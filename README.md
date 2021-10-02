@@ -10,8 +10,8 @@
 * Configured lsp using [lsp-conf](https://github.com/neovim/nvim-lspconfig)
 * Trying out Dracula colorscheme (sorry Gruvbox)
 * Plans for the future: 
-    * [completion](https://github.com/hrsh7th/nvim-cmp) 
-    * [lspsaga](https://github.com/glepnir/lspsaga.nvim)
+    ~~* [completion](https://github.com/hrsh7th/nvim-cmp)~~
+    ~~* [lspsaga](https://github.com/glepnir/lspsaga.nvim)~~
     * [telescope](https://github.com/nvim-telescope/telescope.nvim)
     * fzf, nvim-tree, lualine ...
 

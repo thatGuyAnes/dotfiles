@@ -7,7 +7,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                      " Completion
 Plug 'preservim/nerdtree'                                            " NERDTree
 Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }                 " Fuzzy Search
 Plug 'junegunn/fzf.vim'                                              
@@ -29,5 +28,7 @@ Plug 'overcache/NeoSolarized'                                        "
 Plug 'gruvbox-community/gruvbox'                                               "
 Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()                                                      

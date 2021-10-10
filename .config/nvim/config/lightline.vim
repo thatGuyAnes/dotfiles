@@ -5,15 +5,16 @@
 
 " lightline settings.
 let g:lightline = {
-    \ 'colorscheme': 'dracula',
+    \ 'colorscheme': 'gruvbox',
     \ 'active': {
     \   'left': [ ['mode'],
-    \           [ 'readonly', 'filename', 'modified' ] ],
+    \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
     \   'right': [ ['filetype', 'percent', 'lineinfo' ] ]
     \},
     \ 'component_function': {
     \   'filename': 'LightlineFilename',
-    \   'modified': 'LightLineModified'
+    \   'modified': 'LightLineModified',
+    \   'gitbranch': 'GitBranch'
     \ }
     \ }
 
@@ -31,3 +32,10 @@ endfunction
 function! LightLineModified() abort
     return &modified ? '●' : ''
 endfunction
+
+function! GitBranch()
+  return " " . FugitiveHead()
+endfunction
+
+" Use autocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()

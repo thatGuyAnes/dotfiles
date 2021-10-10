@@ -20,8 +20,8 @@ vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 
 vim.opt.list = true
 require("indent_blankline").setup {
-    char = '▏',
-    --char = "│",
+    --char = '▏',
+    char = "│",
     --show_current_context = true,
     use_treesitter = true,
     buftype_exclude = {"terminal"},

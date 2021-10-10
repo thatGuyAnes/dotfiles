@@ -5,7 +5,7 @@
 
 " NERDTREE
 let g:NERDTreeWinPos = "left"
-let NERDTreeWinSize = 25
+let NERDTreeWinSize = 35
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeStatusline = -1
 
@@ -15,7 +15,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Start NERDTree and put the cursor back in the other window.
 " autocmd VimEnter * NERDTree | wincmd p
 
+" minimal Ui
 let NERDTreeMinimalUI = 1
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 " autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |

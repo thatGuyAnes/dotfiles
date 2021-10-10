@@ -31,5 +31,7 @@ Plug 'overcache/NeoSolarized'                                        "
 Plug 'gruvbox-community/gruvbox'                                               "
 Plug 'shaunsingh/moonlight.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
- Plug 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-gruvbox8'
+
 call plug#end()                                                      

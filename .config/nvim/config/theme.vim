@@ -5,6 +5,7 @@ source $HOME/.config/nvim/config/themes/ayu.vim
 source $HOME/.config/nvim/config/themes/moonlight.vim
 source $HOME/.config/nvim/config/themes/neosolarized.vim
 source $HOME/.config/nvim/config/themes/solarized8.vim
+source $HOME/.config/nvim/config/themes/gruvbox8.vim
 
 " Get the right colors when running Vim inside tmux: see `:h xterm-true-color`
 if exists('+termguicolors')
@@ -21,7 +22,7 @@ set t_ut=
 set termguicolors
 syntax enable
 set background=dark
-colorscheme gruvbox
+colorscheme gruvbox8_hard
 
 
 "##############################################################################

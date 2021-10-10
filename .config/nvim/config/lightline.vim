@@ -5,7 +5,7 @@
 
 " lightline settings.
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
+    \ 'colorscheme': 'gruvbox8',
     \ 'active': {
     \   'left': [ ['mode'],
     \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],

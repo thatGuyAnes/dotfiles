@@ -38,7 +38,29 @@ exec --no-startup-id picom --experimental-backends
 exec --no-startup-id nm-applet
 
 # redshift requires Geoclue for lat/long, this is a one liner to work around that.
-exec --no-startup-id redshift -l 36.768125:10.269234 -t 5600:4000
+exec --no-startup-id redshift
+
+
+# redshift and resize mode.
+set $mode_launcher Choose: (r)esize, (s)redshift
+set $mode_redshift Color temperature: (r)eset, (l)ow, (m)edium, (h)igh
+set $reset_redshift pkill -9 redshift;
+bindsym $mod+r mode "$mode_launcher"
+mode "$mode_launcher" {
+  bindsym r mode "resize"
+  bindsym s mode "$mode_redshift"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+# Default tmp:6500/4500 (day/night).
+mode "$mode_redshift" {
+  bindsym r exec --no-startup-id "$reset_redshift redshift -x", mode "default"
+  bindsym l exec --no-startup-id "$reset_redshift redshift -P -O 3100", mode "default"
+  bindsym m exec --no-startup-id "$reset_redshift redshift -P -O 4500", mode "default"
+  bindsym l exec --no-startup-id "$reset_redshift redshift -P -O 5600", mode "default"
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -230,7 +252,6 @@ set $t_chromium_white #C8C3B6
 set $t_light #FEFAD4
 
 
-bindsym $mod+r mode "resize"
 
 ########
 ## window title bars && borders 

@@ -18,7 +18,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.:q
-font pango:ubuntu 10
+font pango:Iosevka Term 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -40,26 +40,25 @@ exec --no-startup-id nm-applet
 # redshift requires Geoclue for lat/long, this is a one liner to work around that.
 exec --no-startup-id redshift
 
-
 # redshift and resize mode.
-set $mode_launcher Choose: (r)esize, (s)redshift
-set $mode_redshift Color temperature: (r)eset, (l)ow, (m)edium, (h)igh
+set $mode_launcher Select option: (r)esize | (s)redshift | (q)uit.
+set $mode_redshift Color temperature: (r)eset | (l)ow | (m)edium | (h)igh | (q)uit.
 set $reset_redshift pkill -9 redshift;
 bindsym $mod+r mode "$mode_launcher"
 mode "$mode_launcher" {
   bindsym r mode "resize"
   bindsym s mode "$mode_redshift"
   bindsym Escape mode "default"
-  bindsym Return mode "default"
+  bindsym q mode "default"
 }
 # Default tmp:6500/4500 (day/night).
 mode "$mode_redshift" {
   bindsym r exec --no-startup-id "$reset_redshift redshift -x", mode "default"
-  bindsym l exec --no-startup-id "$reset_redshift redshift -P -O 3100", mode "default"
-  bindsym m exec --no-startup-id "$reset_redshift redshift -P -O 4500", mode "default"
-  bindsym l exec --no-startup-id "$reset_redshift redshift -P -O 5600", mode "default"
+  bindsym l exec --no-startup-id "$reset_redshift redshift -P -O 3300 -g 0.8", mode "default"
+  bindsym m exec --no-startup-id "$reset_redshift redshift -P -O 4500 -g 0.9", mode "default"
+  bindsym h exec --no-startup-id "$reset_redshift redshift -P -O 5600", mode "default"
   bindsym Escape mode "default"
-  bindsym Return mode "default"
+  bindsym q mode "default"
 }
 
 # Use pactl to adjust volume in PulseAudio.
@@ -190,12 +189,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing h will shrink the window’s width.
-        # Pressing l will grow the window’s width.
-        # Pressing k will shrink the window’s height.
-        # Pressing j will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -228,6 +221,7 @@ for_window [class="File-roller"]                    floating enable
 for_window [class="Galculator"]                     floating enable
 for_window [class="Totem"]                          floating enable
 for_window [class="vlc"]                            floating enable
+for_window [class="Gthumb"]                            floating enable
 # for_window [class="Org.gnome.Nautilus"]              floating enable
 for_window [title="Preferences$"]                   floating enable
 
@@ -236,20 +230,20 @@ for_window [title="Preferences$"]                   floating enable
 #######
 
 # set primary gruvbox colorscheme colors
-set $bg #282828
-set $bg_darker #202020
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021 
+# set $bg        #282828
+# set $bg_darker #202020
+# set $red       #cc241d
+# set $green     #98971a
+# set $yellow    #d79921
+# set $blue      #458588
+# set $purple    #b16286
+# set $aqua      #689d68
+# set $gray      #a89984
+# set $darkgray  #1d2021
 
-set $t_green #8FB9A8
-set $t_chromium_white #C8C3B6
-set $t_light #FEFAD4
+# set $t_green   #8FB9A8
+# set $t_light   #FEFAD4
+# set $t_chromium_white #C8C3B6
 
 
 
@@ -258,14 +252,14 @@ set $t_light #FEFAD4
 ########
 
 # green gruvbox
-# class                 border|backgr|text|indicator|child_border
-client.focused          $green $green $darkgray $purple #CB957A
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+# class                 border|   backgr|   text|     indicator|  child_border
+client.focused          $green    $green    $darkgray $purple   #CB957A
+client.focused_inactive $darkgray $darkgray $yellow   $purple   $darkgray
+client.unfocused        $darkgray $darkgray $yellow   $purple   $darkgray
+client.urgent           $red $red $white    $red      $red
 
 # blue gruvbox
-# class                 border|backgr|text|indicator|child_border
+# class                   border|backgr|text|indicator|child_border
 # client.focused          $blue $blue $darkgray $purple $darkgray
 # client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 # client.unfocused        $darkgray $darkgray $yellow $purple $darkgray

@@ -29,7 +29,7 @@
     * [telescope](https://github.com/nvim-telescope/telescope.nvim)
     * fzf, nvim-tree, lualine ...
 
-![Alt text](sreenshots/Screenshot_from_2021-10-02.png)
+![Alt text](screenshots/Screenshot_from_2021-10-02.png)
 ---
 
 - i3[wm](https://i3wm.org/)

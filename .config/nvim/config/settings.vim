@@ -1,48 +1,51 @@
-set nowrap                              " Disable text wrapping
-set tabstop=2                           " tab is 2 spaces
+set nowrap                              " Disables line wrapping.
+set cursorline                          " Highlights the current line.
+set tabstop=2                           " Tabs are 2 spaces.
+set showtabline=2                       " Show tabs (default 0:never, 1: more than one window, 2:always)
 set softtabstop=2                       "
-set shiftwidth=2                        "
-set expandtab                           "
-set smartindent                         "
-set mouse+=a                            " Mouse support
-filetype plugin indent on
-set hidden                              "
-set encoding=utf-8                      "
-set cmdheight=1                         "
-set incsearch                           "
-set hlsearch                            "
-set ignorecase                          "
-set smartcase                           "
-set scrolloff=3                         "
-set colorcolumn=80                      "
-set splitright                          " Split to right
-set splitbelow                          " Split to bottom
-set nu                                  "
-set relativenumber                      "
-set nohlsearch                          "
-set clipboard=unnamedplus               "
-set noshowmode                          " Remoce mode information (unnecessary because it's displayed in the statusline)
-set laststatus=2                        "
-set signcolumn=yes                      "
+set shiftwidth=2                        " Number of space characters used for indentation.
+set expandtab                           " Changes tabs to spaces.
+set smartindent                         " Shrewder and better auto indentation.
+set autoindent                          " Atuto indent.
+set smarttab                            " Better IQ for tabs.
+set mouse+=a                            " Enables mouse support.
+set hidden                              " Keeps multiple buffers open.
+set encoding=utf-8                      " Sets utf8 as the encoding displayed.
+set incsearch                           " Shows the matched charcters when searching.
+set hlsearch                            " Highlights all matched search.
+set ignorecase                          " Ignores case sensitivity.
+set smartcase                           " Enables case sensitivity when using uppercases.
+set scrolloff=3                         " Always showing 3 lines when scrolling.
+set colorcolumn=81                      " 80 characters column.
+set splitright                          " Vertical splits to the right.
+set splitbelow                          " Horizontal splits to the bottom.
+set nu                                  " Enables line numbers.
+set relativenumber                      " Line numbers relative to the current line.
+set nohlsearch                          " No highlights after searching is done.
+set clipboard+=unnamedplus              " Copy paste from clipboard from/to vim.
+set noshowmode                          " Remove mode information (unnecessary because it's displayed in the statusline)
+set laststatus=2                        " Statusline even there's only one window ALWAYS!!!
+set cmdheight=2                         " Command line height (default 1).
+set signcolumn=yes                      " Enables sign colomn.
 set shortmess+=c                        " Don't pass messages to |ins-completion-menu|.
 set updatetime=300                      " faster completion.
+set timeoutlen=500                      " Time to wait for a mapped sequence to complete.
+set conceallevel=0                      " Shows backticks in md files.
+set winblend=10                         " Floating windows transparency.
+set sidescroll=5                        " Number of columns to scroll horizontaly offscreen.
 au BufEnter * set fo-=c fo-=r fo-=o     " set formatoptions-=rco, simply stops having comment on new line.
-set conceallevel=0                      " shows backticks in md files.
-au! BufWritePost $MYVIMRC source %      " Saving in init.vim source it.
-set winblend=10
-
-" Blinking cursor in insert mode.
-set guicursor=i-ci:ver100-iCursor-blinkwait300-blinkon200-blinkoff150
-
-" set sidescroll=5
+au! BufWritePost $MYVIMRC source %      " Saving in init.vim sources it. (:source $MYVIMRC)
 " set listchars+=precedes:<,extends:>
 
-let g:html_indent_tags = 'li\|p'        " Treat <li> and <p> tags like the block tags they are.
+" Blinking cursor in insert mode + horizontal cursor in visual and replace mode.
+set guicursor=i-c:ver100-iCursor-blinkwait300-blinkon200-blinkoff150,v-r-cr:hor20
 
-" Quick scope
-" Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" Treat <li> and <p> tags like the block tags they are.
+let g:html_indent_tags = 'li\|p'
 
+" True colors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-autocmd Filetype html setlocal ts=4 sw=4 expandtab        " Indent 4 spaces in HTML
+" Indent 4 spaces in HTML
+autocmd Filetype html setlocal ts=4 sw=4 expandtab
+filetype plugin indent on

@@ -1,3 +1,4 @@
+" All hail the space key!!!
 let g:mapleader = "\<Space>"
 
 " map <Esc> to exit terminal-mode:
@@ -9,11 +10,19 @@ nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
-" Better escape
-inoremap jk <Esc>
-inoremap kj <Esc>
-inoremap JK <Esc>
-inoremap KJ <Esc>
+" Better escape OR fucking use ctrl-[ !!!
+inoremap jj <Esc>
+inoremap JJ <Esc>
+
+"//////////////////////////////////////////////////////////////////////////////
+" If you use Vim in a terminal, pressing alt will send an escape character
+" followed by the normal_mode_key that you
+" pressed, removing the need to press escape yourself.
+"//////////////////////////////////////////////////////////////////////////////
+" For Tmux ;
+" New lines without going to insert mode
+nnoremap <A-o> o<Esc>
+nnoremap <A-O> O<Esc>
 
 " Better editing
 nnoremap vw viw
@@ -35,11 +44,16 @@ nnoremap <leader>/ :Commentary<CR>
 vnoremap <leader>/ :Commentary<CR>
 
 " Vertical resize
-nnoremap <Leader>rl :vertical resize +5<CR>
-nnoremap <Leader>rh :vertical resize -5<CR>
+" nnoremap <Leader>rl :vertical resize +5<CR>
+" nnoremap <Leader>rh :vertical resize -5<CR>
+nnoremap <M-l> :vertical resize -5<CR>
+nnoremap <M-h> :vertical resize +5<CR>
+
 " Horizontal resize
-nnoremap <Leader>rj :resize +5<CR>
-nnoremap <Leader>rk :resize -5<CR>
+" nnoremap <Leader>rj :resize +5<CR>
+" nnoremap <Leader>rk :resize -5<CR>
+nnoremap <M-j> :resize -5<CR>
+nnoremap <M-k> :resize +5<CR>
 
 " Surround
 " `ysiw`             ----> surround word
@@ -52,6 +66,6 @@ nnoremap <Leader>rk :resize -5<CR>
 " File explorer.
 nnoremap <silent> <C-p> :Files<CR>
 
-" Toggle Tree
-map <silent> <C-n> :NERDTreeToggle<CR>
-map <leader>nf :NERDTreeFind<CR>
+" " Toggle Tree
+" map <silent> <C-n> :NERDTreeToggle<CR>
+" map <leader>nf :NERDTreeFind<CR>

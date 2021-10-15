@@ -2,9 +2,23 @@
 
 ![Alt text](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
 
---- 
+---
+#### Oct 15, 2021;
 
-#### Oct 2, 2021,
+![Alt text](screenshots/conky.png)
+
+* Added [redshift](https://github.com/jonls/redshift) to the mix.
+* Lots of tweaks for Nvim and tmux.
+* Moved Nvim to its own [repo](https://github.com/Anes-Marzooki/nvim-config).
+* Made my first mode with custom options for redshift (`super+r` activate the menu).
+* Added [conky](https://github.com/brndnmtthws/conky) for system monitoring.
+* Added Icons to the [rofi](https://github.com/davatorium/rofi) menu.
+* Played around with [picom](https://github.com/yshui/picom) blur, not a huge fan.
+
+![Alt text](screenshots/15-10.png)
+
+
+#### Oct 2, 2021;
 * Mainly nvim and tmux tweaks, back to square one.
 * Removed coc
 * Configured lsp using [lsp-conf](https://github.com/neovim/nvim-lspconfig)
@@ -15,7 +29,7 @@
     * [telescope](https://github.com/nvim-telescope/telescope.nvim)
     * fzf, nvim-tree, lualine ...
 
-![Alt text](pics/Screenshot_from_2021-10-02.png)
+![Alt text](sreenshots/Screenshot_from_2021-10-02.png)
 ---
 
 - i3[wm](https://i3wm.org/)

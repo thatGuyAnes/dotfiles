@@ -1,0 +1,257 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+; [MODULE]
+; param = value
+
+[colors]
+background          =  #dfe0df
+background-alt      =  #55ffccaf
+foreground          =  #54433b
+foreground-alt      =  #555
+primary             =  #D65847
+secondary           =  #e60053
+alert               =  #bd2c40
+
+[bar/main]
+monitor             = ${env:MONITOR:}
+width               = 100%
+height              = 25
+fixed-center        = true
+; monitor             = VGA-1
+; offset-x            = 1%
+; offset-y            = 1%
+; radius              = 0
+;
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+;
+line-size           = 0
+line-color          = #0f0
+;
+border-bottom-size  = 2
+border-bottom-color = ${colors.foreground}
+padding-left        = 2
+padding-right       = 2
+;
+module-margin-left  = 1
+module-margin-right = 1
+;
+font-0              = Iosevka Term:style=Regular:pixelsize=10;1
+font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
+font-2              = siji:pixelsize=5;1
+;
+modules-left        = i3
+modules-center      = date
+modules-right       = spotify pulseaudio wlan battery powermenu
+; modules-center      = xwindow
+; modules-center      = spotify
+;
+separator           = |
+;
+tray-position       = right
+tray-padding        = 2
+; tray-background     = #0063ff
+;
+wm-restack          = i3
+;
+; override-redirect   = true
+;
+;scroll-up            = bspwm-desknext
+;scroll-down          = bspwm-deskprev
+;
+;scroll-up            = i3wm-wsnext
+;scroll-down          = i3wm-wsprev
+;
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+[module/xwindow]
+type                = internal/xwindow
+label               = %title:0:30:...%
+
+[module/i3]
+type                = internal/i3
+format              = <label-state> <label-mode>
+index-sort          = true
+wrapping-scroll     = false
+;
+; Create click handler used to focus workspace
+; Default           = true
+enable-click        = false
+;
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll       = false
+;
+; Only show workspaces on the same output as the bar
+; pin-workspaces      = true
+label-mode-padding    = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+;
+; focused = Active workspace on focused monitor
+label-focused            = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline  = ${colors.primary}
+label-focused-padding    = 2
+;
+; unfocused             = Inactive workspace on any monitor
+label-unfocused         = %index%
+label-unfocused-padding = 2
+;
+; visible                = Active workspace on unfocused monitor
+label-visible            = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline  = ${self.label-focused-underline}
+label-visible-padding    = ${self.label-focused-padding}
+;
+; urgent                = Workspace with urgency hint set
+label-urgent            = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding    = 2
+
+[module/xbacklight]
+; Use `$ ls -1 /sys/class/backlight` to list available cards.
+type   = internal/backlight
+card   = intel_backlight
+format = <label> <bar>
+label  = BL
+;
+bar-width                = 10
+bar-indicator            = |
+bar-indicator-font       = 2
+bar-fill                 = ─
+bar-fill-font            = 2
+bar-empty                = ─
+bar-empty-font           = 2
+bar-empty-foreground     = ${colors.foreground-alt}
+bar-indicator-foreground = #fff
+bar-fill-foreground      = #9f78e1
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type    = internal/backlight
+card    = intel_backlight
+
+[module/wlan]
+; Use `ip link` to get the names of the interfaces
+; on your machine.
+type                   = internal/network
+interface              = wlp3s0
+interval               = 3.0
+;
+format-connected       = <ramp-signal> <label-connected>
+label-connected        = %signal%
+;
+format-disconnected    = <label-disconnected>
+;
+ramp-signal-0          = 
+ramp-signal-1          = 
+ramp-signal-2          = 
+ramp-signal-3          = 
+ramp-signal-4          = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/date]
+type     = internal/date
+interval = 1
+;
+date     = " %Y-%m-%d"
+date-alt = " %Y-%m-%d"
+;
+time     = %H:%M
+time-alt = %H:%M:%S
+label    = %date% %time%
+;
+format-prefix-foreground = ${colors.foreground-alt}
+
+[module/pulseaudio]
+type                    = internal/pulseaudio
+;
+; labe + bar
+format-volume           = <label-volume>
+label-volume            = vol %percentage%%
+label-volume-foreground = ${root.foreground}
+;
+label-muted             = 🔇 muted
+label-muted-foreground  = #666
+
+[module/powermenu]
+type = custom/menu
+;
+expand-right   = true
+format-spacing = 1
+;
+label-open                 = 
+label-open-foreground      = ${colors.secondary}
+label-close                = cancel
+label-close-foreground     = ${colors.secondary}
+label-separator            = |
+label-separator-foreground = ${colors.foreground-alt}
+;
+menu-0-0      = reboot
+menu-0-0-exec = systemctl reboot
+menu-0-1      = power off
+menu-0-1-exec = systemctl poweroff
+;
+; menu-1-0 = cancel
+; menu-1-0-exec = menu-open-0
+; menu-1-1 = reboot
+; menu-1-1-exec = sudo reboot
+;
+; menu-2-0 = power off
+; menu-2-0-exec = sudo poweroff
+; menu-2-1 = cancel
+; menu-2-1-exec = menu-open-0
+
+[module/spotify]
+type             = custom/script
+interval         = 1
+; format-prefix  = " "
+exec             = python ~/.config/polybar/spotify_status.py -f '{play_pause} {artist}: {song}'
+format           = <label>
+format-underline = #1db954
+; format-prefix  = "%{F#e1bfbe}   %{F-}"
+format-prefix    = " "
+;control players (optional)
+; click-left     = playerctl --player=spotify play-pause 
+click-right      = playerctl --player=spotify next 
+click-middle     = playerctl --player=spotify previous 
+tail             = true
+click-left       = i3-msg 'workspace "9"' 
+
+[settings]
+screenchange-reload = true
+; compositing-background = xor
+; compositing-background = screen
+; compositing-foreground = source
+; compositing-border = over
+; pseudo-transparency = false
+
+[global/wm]
+margin-top    = 5
+margin-bottom = 5
+
+; [module/alsa]
+; [module/battery]
+; [module/temperature]
+; [module/filesystem]
+; [module/cpu]
+; [module/memory]
+
+; vim:ft=dosini

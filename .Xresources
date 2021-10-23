@@ -1,17 +1,15 @@
 ! Run `xrdb ~/.Xresources` to source config.
 
-!#################
-## Cursor Mouse ##
-!#################
+!---------------------------------------------------------------- CURSOR / MOUSE
 
 ! URxvt*cursorColor: #48D06D
-URxvt*cursorColor: #fabd2f
+! URxvt*cursorColor: #fabd2f
+URxvt*cursorColor: #5eacd3
 URxvt.mouseWheelScrollPage: false
+Xcursor.theme: Breeze_Snow
+Xcursor.size: 16
 
-
-!#################
-## Fonts ##
-!#################
+!------------------------------------------------------------------------- FONTS
 
 ! URxvt.font: xft:DejaVuSansMono Nerd Font Mono:size=13
 ! URxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:size=13
@@ -19,11 +17,11 @@ URxvt.mouseWheelScrollPage: false
 ! URxvt.font: xft:InconsolataGo Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:InconsolataGo Nerd Font Mono:size=12
 
-! URxvt.font: xft:Inconsolata Nerd Font Mono:size=13
-! URxvt.boldFont: xft:Inconsolata Nerd Font Mono:size=13
+! URxvt.font: xft:Inconsolata Nerd Font Mono:size=15
+! URxvt.boldFont: xft:Inconsolata Nerd Font Mono:size=15
 
-! URxvt.font: xft:UbuntuMono Nerd Font Mono:size=13
-! URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=13
+URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
+URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
 
 ! URxvt.font: xft:Monoid Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:Monoid Nerd Font Mono:size=12
@@ -31,57 +29,63 @@ URxvt.mouseWheelScrollPage: false
 ! URxvt.font: xft:Hack Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:Hack Nerd Font Mono:size=12
 
-URxvt.font: xft:SauceCodePro Nerd Font Mono:size=13
-URxvt.boldFont: xft:SauceCodePro Nerd Font Mono:size=13
+! URxvt.font: xft:SauceCodePro Nerd Font Mono:size=14
+! URxvt.boldFont: xft:SauceCodePro Nerd Font Mono:size=14
 
 ! URxvt.font: xft:MesloLGS Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:MesloLGS Nerd Font Mono:size=12
 
-
-!##############################################################################
-## Typography ##
-!##############################################################################
+!--------------------------------------------------------------- X_FONT_SETTINGS
 
 URxvt.letterSpace: 0
-URxvt.lineSpace: 3
-Xft.dpi: 96
-Xft.antialias: true
+URxvt.lineSpace: 5
 
+! Change DPI value:
+Xft.dpi: 90
+/* Xft.antialias: true */
 
-!##############################################################################
-## Copy-Paste ##
-!##############################################################################
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+!---------------------------------------------------------------------Copy-Paste
 
 ! Normal copy-paste keybindings  ( ctrl-shift c/v )
-urxvt.iso14755:                   false
-urxvt.keysym.Shift-Control-V:     eval:paste_clipboard
-urxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+URxvt.iso14755:                   false
+URxvt.iso14755_52:                false
 
 
-!##############################################################################
-## Extensions ##
-!##############################################################################
+!---------------------------------------------------------------------EXTENSIONS
 
-URxvt.perl-ext-common: resize-font
+URxvt.perl-ext-common: resize-font,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
+!-------------------------------------------------------------------------WINDOW
 
-!##############################################################################
-## Window ##
-!##############################################################################
-
+urxvt*internalBorder: 10
 URxvt.scrollBar: false
 URxvt.saveLines: 10000
-! URxvt.transparent: true
-! URxvt.shading: 20
-! remove border
 URxvt.borderLess: false
 
+!------------------------------------------------------------------ TRANSPARENCY
 
-!##############################################################################
-## Color Themes ##
-!##############################################################################
+! #### Fake transparency;
+! URxvt.transparent: true
+! URxvt.shading: 80
 
-! Dracula Xresources palette
+! #### Composite- real transparency;
+urxvt*depth: 32
+urxvt*background: [90]#1d2021
+
+!-------------------------------------------------------------------COLOR_SCHEME
+
+! : DRACULA
 ! *.foreground: #F8F8F2
 ! *.background: #282A36
 ! *.color0:     #000000
@@ -101,75 +105,50 @@ URxvt.borderLess: false
 ! *.color7:     #BFBFBF
 ! *.color15:    #E6E6E6
 
-! -----------------------------------------------------------------------------
-! File: gruvbox-dark.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! -----------------------------------------------------------------------------
+! : GRUVBOX-DARK
+! soft contrast:
+*background: #32302f
+! *background: #282828
+! hard contrast:1
+! *background: #1d2021
+ *foreground: #ebdbb2
+ *color0:     #282828
+ *color8:     #928374
+ *color1:     #cc241d
+ *color9:     #fb4934
+ *color2:     #98971a
+ *color10:    #b8bb26
+ *color3:     #d79921
+ *color11:    #fabd2f
+ *color4:     #458588
+ *color12:    #83a598
+ *color5:     #b16286
+ *color13:    #d3869b
+ *color6:     #689d6a
+ *color14:    #8ec07c
+ *color7:     #a89984
+ *color15:    #ebdbb2
+
+! : GRUVBOX-LIGHT
 ! hard contrast:
-!*background: #1d2021
- *background: #282828
-! soft contrast: *background: #32302f
-*foreground: #ebdbb2
-! Black + DarkGrey
-*color0:     #282828
-*color8:     #928374
-! DarkRed + Red
-*color1:     #cc241d
-*color9:     #fb4934
-! DarkGreen + Green
-*color2:     #98971a
-*color10:    #b8bb26
-! DarkYellow + Yellow
-*color3:     #d79921
-*color11:    #fabd2f
-! DarkBlue + Blue
-*color4:     #458588
-*color12:    #83a598
-! DarkMagenta + Magenta
-*color5:     #b16286
-*color13:    #d3869b
-! DarkCyan + Cyan
-*color6:     #689d6a
-*color14:    #8ec07c
-! LightGrey + White
-*color7:     #a89984
-*color15:    #ebdbb2
-
-! -----------------------------------------------------------------------------
-! File: gruvbox-light.xresources
-! Description: Retro groove colorscheme generalized
-! Author: morhetz <morhetz@gmail.com>
-! Source: https://github.com/morhetz/gruvbox-generalized
-! Last Modified: 6 Sep 2014
-! -----------------------------------------------------------------------------
-
-!! hard contrast: *background: #f9f5d7
-!*background: #fbf1c7
-!! soft contrast: *background: #f2e5bc
-!*foreground: #3c3836
-!! Black + DarkGrey
-!*color0:  #fdf4c1
-!*color8:  #928374
-!! DarkRed + Red
-!*color1:  #cc241d
-!*color9:  #9d0006
-!! DarkGreen + Green
-!*color2:  #98971a
-!*color10: #79740e
-!! DarkYellow + Yellow
-!*color3:  #d79921
-!*color11: #b57614
-!! DarkBlue + Blue
-!*color4:  #458588
-!*color12: #076678
-!! DarkMagenta + Magenta
-!*color5:  #b16286
-!*color13: #8f3f71
-!! DarkCyan + Cyan
-!*color6:  #689d6a
-!*color14: #427b58
-!! LightGrey + White
-!*color7:  #7c6f64
-!*color15: #3c3836
+! *background: #f9f5d7
+! *background: #fbf1c7
+! soft contrast:
+! *background: #f2e5bc
+! *foreground: #3c3836
+! *color0:     #fdf4c1
+! *color8:     #928374
+! *color1:     #cc241d
+! *color9:     #9d0006
+! *color2:     #98971a
+! *color10:    #79740e
+! *color3:     #d79921
+! *color11:    #b57614
+! *color4:     #458588
+! *color12:    #076678
+! *color5:     #b16286
+! *color13:    #8f3f71
+! *color6:     #689d6a
+! *color14:    #427b58
+! *color7:     #7c6f64
+! *color15:    #3c3836

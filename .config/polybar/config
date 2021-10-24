@@ -20,7 +20,7 @@
 
 [colors]
 background          =  #dfe0df
-background-alt      =  #55ffccaf
+background-alt      =  #cfccaf
 foreground          =  #54433b
 foreground-alt      =  #555
 primary             =  #D65847

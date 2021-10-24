@@ -1,8 +1,13 @@
-# fedora+i3 dotfiles
-
-![Alt text](https://fedoraproject.org/w/uploads/2/2d/Logo_fedoralogo.png)
+# My fedora;i3WM setup.
 
 ---
+#### Oct 24, 2021;
+
+- Mainly some maintenance, cleaning up some junk code, and playing around with the 
+i3 config.
+- Removed Neovim from this repo.
+- Added drop shadow through picom(it works, for now, polybar on second monitor is giving me a hard time though)
+
 #### Oct 15, 2021;
 
 ![Alt text](screenshots/conky.png)
@@ -32,7 +37,7 @@
 ![Alt text](screenshots/Screenshot_from_2021-10-02.png)
 ---
 
-- i3[wm](https://i3wm.org/)
+- i3_gaps[wm](https://github.com/Airblader/i3)
     - Launcher [rofi](https://github.com/davatorium/rofi)
     - Status bar [polybar](https://github.com/polybar/polybar)
     - Compositor [picom](https://github.com/yshui/picom)

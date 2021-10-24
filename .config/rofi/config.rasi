@@ -1,8 +1,8 @@
 configuration {
-	theme: "/usr/share/rofi/themes/gruvbox-dark-soft.rasi";
-  font: "Iosevka Term 15";
-  sidebar-mode: true;
-  show-icons: true;
-  icon-theme: "Adwaita";
+    theme: "/usr/share/rofi/themes/DarkBlue.rasi";
+    font: "Iosevka Term 15";
+    sidebar-mode: true;
+    show-icons: true;
+    icon-theme: "Adwaita";
 }
-@import "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
+@import "/usr/share/rofi/themes/DarkBlue.rasi"

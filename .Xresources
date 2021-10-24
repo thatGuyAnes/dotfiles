@@ -11,8 +11,8 @@ Xcursor.size: 16
 
 !------------------------------------------------------------------------- FONTS
 
-! URxvt.font: xft:DejaVuSansMono Nerd Font Mono:size=13
-! URxvt.boldFont: xft:DejaVuSansMono Nerd Font Mono:size=13
+! URxvt.font: xft:DejaVuSans Mono:size=13
+! URxvt.boldFont: xft:DejaVuSans Mono:size=13
 
 ! URxvt.font: xft:InconsolataGo Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:InconsolataGo Nerd Font Mono:size=12
@@ -20,8 +20,8 @@ Xcursor.size: 16
 ! URxvt.font: xft:Inconsolata Nerd Font Mono:size=15
 ! URxvt.boldFont: xft:Inconsolata Nerd Font Mono:size=15
 
-URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
-URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
+! URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
+! URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
 
 ! URxvt.font: xft:Monoid Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:Monoid Nerd Font Mono:size=12
@@ -32,18 +32,15 @@ URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
 ! URxvt.font: xft:SauceCodePro Nerd Font Mono:size=14
 ! URxvt.boldFont: xft:SauceCodePro Nerd Font Mono:size=14
 
-! URxvt.font: xft:MesloLGS Nerd Font Mono:size=12
-! URxvt.boldFont: xft:MesloLGS Nerd Font Mono:size=12
+URxvt.font: xft:MesloLGS Nerd Font Mono:size=12
+URxvt.boldFont: xft:MesloLGS Nerd Font Mono:size=12
 
 !--------------------------------------------------------------- X_FONT_SETTINGS
 
 URxvt.letterSpace: 0
 URxvt.lineSpace: 5
 
-! Change DPI value:
 Xft.dpi: 90
-/* Xft.antialias: true */
-
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
@@ -59,10 +56,9 @@ URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 URxvt.iso14755:                   false
 URxvt.iso14755_52:                false
 
-
 !---------------------------------------------------------------------EXTENSIONS
 
-URxvt.perl-ext-common: resize-font,matcher
+URxvt.perl-ext-common: resize-font,clipboard,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 

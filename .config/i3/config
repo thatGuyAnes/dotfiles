@@ -11,7 +11,7 @@ floating_modifier $mod
 
 for_window [class=".*"] border pixel 2
 gaps outer 0
-gaps inner 20
+gaps inner 15
 
 workspace $firefox gaps inner 0
 for_window [class="Firefox"] border pixel 0
@@ -45,15 +45,17 @@ mode "$mode_redshift" {
 #----------------------------------------------------------------- AUDIO CONTROL
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# set $refresh_i3status killall -SIGUSR1 i3status
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #---------------------------------------------------------------------- BINDINGS
 
-bindsym $mod+Return exec --no-startup-id urxvt
+# I'm switching to gnome-terminal
+bindsym $mod+Return exec --no-startup-id gnome-terminal
+# bindsym $mod+Return exec --no-startup-id urxvt
 
 bindsym $mod+q kill
 bindsym $mod+d exec rofi -show drun -opacity "85"
@@ -104,6 +106,8 @@ for_window [class="Totem"]                          floating enable
 for_window [class="vlc"]                            floating enable
 for_window [class="Gthumb"]                         floating enable
 for_window [title="Preferences$"]                   floating enable
+for_window [class="Pavucontrol"]                    floating enable
+for_window [class="Blueman-manager"]                floating enable
 # for_window [class="Org.gnome.Nautilus"]              floating enable
 
 #------------------------------------------------------------------ WINDOW FOCUS
@@ -210,19 +214,24 @@ client.unfocused        #1d2021   #1d2021   #d79921   #b16286   #1d2021
 client.urgent           #cc241d   #cc241d   #FFFFFF   #cc241d   #cc241d
 
 #---------------------------------------------------------------- INITIALIZATION
+#-------------------------------------------------------------------------------
+# NOTES:
+#   `exec`:             Runs on i3 startup.
+#   `exec_always`:      Will run also on i3 restart.
+#   `--no-startup-id`:  disables startup notification, no hourglass on startup.
+#
+#-------------------------------------------------------------------------------
 
-# Executes startup scripts.
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# --no-startup-id disables startup notification, no hourglass on startup.
+exec --no-startup-id conky
+exec --no-startup-id picom --experimental-backends
+exec --no-startup-id redshift
 exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1
+exec --no-startup-id Urxvt
 
 # exec --no-startup-id feh --bg-scale $HOME/Downloads/Triss-Merigold36.jpg
 # exec --no-startup-id feh --bg-fill $HOME/Pictures/Triss_half.jpg
-exec --no-startup-id feh --bg-fill $HOME/Pictures/wheel_wall_wallpaper.jpg
-
-# Conky
-exec --no-startup-id conky
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/glass_space_planet.jpg
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -231,11 +240,8 @@ exec --no-startup-id conky
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-exec --no-startup-id picom --experimental-backends
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec --no-startup-id redshift
-
+exec_always --no-startup-id blueman-applet

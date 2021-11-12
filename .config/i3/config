@@ -53,8 +53,7 @@ mode "$mode_redshift" {
 
 #---------------------------------------------------------------------- BINDINGS
 
-# I'm switching to gnome-terminal
-bindsym $mod+Return exec --no-startup-id gnome-terminal
+bindsym $mod+Return exec --no-startup-id tilix
 # bindsym $mod+Return exec --no-startup-id urxvt
 
 bindsym $mod+q kill

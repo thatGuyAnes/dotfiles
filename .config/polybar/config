@@ -18,6 +18,8 @@
 ; [MODULE]
 ; param = value
 
+;------------------------------------------------------------------------- COLOR
+
 [colors]
 background          =  #dfe0df
 background-alt      =  #cfccaf
@@ -27,16 +29,17 @@ primary             =  #D65847
 secondary           =  #e60053
 alert               =  #bd2c40
 
+;--------------------------------------------------------------------------- BAR
+
 [bar/main]
 monitor             = ${env:MONITOR:}
 width               = 100%
 height              = 25
 fixed-center        = true
-; monitor             = VGA-1
 ; offset-x            = 1%
 ; offset-y            = 1%
 ; radius              = 0
-;
+
 background          = ${colors.background}
 foreground          = ${colors.foreground}
 ;
@@ -53,11 +56,12 @@ module-margin-right = 1
 ;
 font-0              = Iosevka Term:style=Regular:pixelsize=10;1
 font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
-font-2              = siji:pixelsize=5;1
+font-2              = FontAwesome:style=Regular:pixelsize=10;1
+font-3              = siji:pixelsize=5;1
 ;
 modules-left        = i3
 modules-center      = date
-modules-right       = spotify pulseaudio wlan battery powermenu
+modules-right       = spotify pulseaudio wireless-network battery powermenu
 ; modules-center      = xwindow
 ; modules-center      = spotify
 ;
@@ -92,14 +96,14 @@ wrapping-scroll     = false
 ;
 ; Create click handler used to focus workspace
 ; Default           = true
-enable-click        = false
+enable-click        = true
 ;
 ; Create scroll handlers used to cycle workspaces
 ; Default: true
 enable-scroll       = false
 ;
 ; Only show workspaces on the same output as the bar
-; pin-workspaces      = true
+pin-workspaces      = true
 label-mode-padding    = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
@@ -148,7 +152,7 @@ inherit = module/xbacklight
 type    = internal/backlight
 card    = intel_backlight
 
-[module/wlan]
+[module/wireless-network]
 ; Use `ip link` to get the names of the interfaces
 ; on your machine.
 type                   = internal/network
@@ -182,14 +186,21 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 [module/pulseaudio]
 type                    = internal/pulseaudio
-;
-; labe + bar
-format-volume           = <label-volume>
-label-volume            = vol %percentage%%
+; label + bar
+format-volume           = <ramp-volume> <label-volume>
+; label-volume            = vol %percentage%%
 label-volume-foreground = ${root.foreground}
+format-muted = <label-muted>
 ;
-label-muted             = 🔇 muted
+
+label-muted             =  muted
 label-muted-foreground  = #666
+
+ramp-volume-0           = 
+ramp-volume-1           = 
+ramp-volume-2           = 
+
+click-right = pavucontrol
 
 [module/powermenu]
 type = custom/menu

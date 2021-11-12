@@ -4,7 +4,7 @@
 
 ! URxvt*cursorColor: #48D06D
 ! URxvt*cursorColor: #fabd2f
-URxvt*cursorColor: #5eacd3
+! URxvt*cursorColor: #5eacd3
 URxvt.mouseWheelScrollPage: false
 Xcursor.theme: Breeze_Snow
 Xcursor.size: 16
@@ -14,14 +14,14 @@ Xcursor.size: 16
 ! URxvt.font: xft:DejaVuSans Mono:size=13
 ! URxvt.boldFont: xft:DejaVuSans Mono:size=13
 
-! URxvt.font: xft:InconsolataGo Nerd Font Mono:size=12
-! URxvt.boldFont: xft:InconsolataGo Nerd Font Mono:size=12
+! URxvt.font: xft:InconsolataGo Nerd Font Mono:size=14
+! URxvt.boldFont: xft:InconsolataGo Nerd Font Mono:size=14
 
 ! URxvt.font: xft:Inconsolata Nerd Font Mono:size=15
 ! URxvt.boldFont: xft:Inconsolata Nerd Font Mono:size=15
 
-! URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
-! URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
+URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
+URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
 
 ! URxvt.font: xft:Monoid Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:Monoid Nerd Font Mono:size=12
@@ -32,13 +32,13 @@ Xcursor.size: 16
 ! URxvt.font: xft:SauceCodePro Nerd Font Mono:size=14
 ! URxvt.boldFont: xft:SauceCodePro Nerd Font Mono:size=14
 
-URxvt.font: xft:MesloLGS Nerd Font Mono:size=12
-URxvt.boldFont: xft:MesloLGS Nerd Font Mono:size=12
+! URxvt.font: xft:MesloLGS Nerd Font Mono:size=12
+! URxvt.boldFont: xft:MesloLGS Nerd Font Mono:size=12
 
 !--------------------------------------------------------------- X_FONT_SETTINGS
 
 URxvt.letterSpace: 0
-URxvt.lineSpace: 5
+URxvt.lineSpace: 6
 
 Xft.dpi: 90
 Xft.autohint: 0
@@ -64,7 +64,7 @@ URxvt.matcher.button: 1
 
 !-------------------------------------------------------------------------WINDOW
 
-urxvt*internalBorder: 10
+urxvt*internalBorder: 2
 URxvt.scrollBar: false
 URxvt.saveLines: 10000
 URxvt.borderLess: false

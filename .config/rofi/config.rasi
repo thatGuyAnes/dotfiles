@@ -1,8 +1,8 @@
 configuration {
-    theme: "/usr/share/rofi/themes/DarkBlue.rasi";
+    /* theme: "/usr/share/rofi/themes/DarkBlue.rasi"; */
     font: "Iosevka Term 15";
     sidebar-mode: true;
     show-icons: true;
     icon-theme: "Adwaita";
 }
-@import "/usr/share/rofi/themes/DarkBlue.rasi"
+@import "/usr/share/rofi/themes/android_notification.rasi"

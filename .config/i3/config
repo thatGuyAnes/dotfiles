@@ -2,19 +2,21 @@
 
 #-------------------------------------------------------------- GENERAL SETTINGS
 
-set $mod Mod4
+# Mod4: super key.
+# Mod1: alt key.
+set $mod Mod1
 font pango:Iosevka Term 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 #-------------------------------------------------------------------------- GAPS
 
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 3
 gaps outer 0
 gaps inner 15
 
-workspace $firefox gaps inner 0
-for_window [class="Firefox"] border pixel 0
+workspace $browser gaps inner 0
+for_window [class="browser"] border pixel 0
 
 #------------------------------------------------------------------------- MODES
 
@@ -81,13 +83,18 @@ bindsym $mod+Ctrl+v split v
 
 workspace_layout default
 
-bindsym $mod+s layout stacking
+bindsym $mod+y layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+f fullscreen toggle
 
 #------------------------------------------------------------------ WINDOW FLOAT
+
+for_window [ title="note_window" ] floating enable
+
+bindsym $mod+n exec gnome-terminal -t note_window -- /home/anes/bin/note.sh
+# bindsym $mod+n exec tilix -e /home/anes/bin/note.sh -title "note_window"
 
 # by ROLE (WM_WINDOW_ROLE)
 # Tip: To find out what these values might be run:
@@ -122,7 +129,7 @@ bindsym $mod+l focus right
 bindsym $mod+a focus parent
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $firefox
+bindsym $mod+Shift+1 move container to workspace number $browser
 bindsym $mod+Shift+2 move container to workspace number $term
 bindsym $mod+Shift+3 move container to workspace number $devtools
 bindsym $mod+Shift+4 move container to workspace number $file
@@ -139,10 +146,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 #----------------------------------------------------------------- WINDOW RESIZE
 
 mode "resize" {
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -154,7 +161,7 @@ mode "resize" {
 
 #--------------------------------------------------------------------- WORKSPACE
 
-set $firefox  "1"
+set $browser  "1"
 set $term     "2"
 set $devtools "3"
 set $file     "4"
@@ -167,7 +174,7 @@ set $ws10     "10"
 
 #---------------------------------------------------------- WORKSPACE NAVIGATION
 
-bindsym $mod+1 workspace $firefox
+bindsym $mod+1 workspace $browser
 bindsym $mod+2 workspace $term
 bindsym $mod+3 workspace $devtools
 bindsym $mod+4 workspace $file
@@ -181,10 +188,10 @@ bindsym $mod+0 workspace number $ws10
 
 #---------------------------------------------------------- WORKSPACE ASSIGNMENT
 
-assign [class="Firefox" instance="Navigator"] → $firefox
+assign [class="browser" instance="Navigator"] → $browser
 assign [class="URxvt" instance="urxvt"] → $term
 assign [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] → $file
-# assign [class="Firefox" instance="Devtools"] → $devtools
+# assign [class="browser" instance="Devtools"] → $devtools
 
 #------------------------------------------------------------------------- COLOR
 
@@ -207,7 +214,7 @@ set $t_chromium_white #C8C3B6
 
 # green gruvbox
 # class                 border    backgr_   text      indic_    child_border
-client.focused          #D4D4D4   #98971a   #1d2021   #C8C3B6   #1d2021
+client.focused          #D4D4D4   #98971a   #1d2021   #C8C3B6   #8FB9A8
 client.focused_inactive #1d2021   #1d2021   #d79921   #1d2021   #1d2021
 client.unfocused        #1d2021   #1d2021   #d79921   #b16286   #1d2021
 client.urgent           #cc241d   #cc241d   #FFFFFF   #cc241d   #cc241d
@@ -244,3 +251,5 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec_always --no-startup-id blueman-applet
+
+exec_always --no-startup-id /usr/lib/gsd-xsettings

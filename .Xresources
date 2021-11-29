@@ -6,7 +6,7 @@
 ! URxvt*cursorColor: #fabd2f
 ! URxvt*cursorColor: #5eacd3
 URxvt.mouseWheelScrollPage: false
-Xcursor.theme: Breeze_Snow
+! Xcursor.theme: Breeze_Snow
 Xcursor.size: 16
 
 !------------------------------------------------------------------------- FONTS
@@ -39,15 +39,15 @@ URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
 
 URxvt.letterSpace: 0
 URxvt.lineSpace: 6
-
 Xft.dpi: 90
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintslight
-Xft.hinting: 1
+
 Xft.antialias: 1
+Xft.hinting: 1
+Xft.autohint: 0
 Xft.rgba: rgb
 
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
 !---------------------------------------------------------------------Copy-Paste
 
 ! Normal copy-paste keybindings  ( ctrl-shift c/v )

@@ -21,9 +21,11 @@
 ;------------------------------------------------------------------------- COLOR
 
 [colors]
-background          =  #dfe0df
-background-alt      =  #cfccaf
-foreground          =  #54433b
+; background          =  #dfe0df
+background          =  #00dfe0df
+background-alt      =  #aacfccaf
+; foreground          =  #54433b
+foreground          =  #dfe0df
 foreground-alt      =  #555
 primary             =  #D65847
 secondary           =  #e60053
@@ -46,7 +48,8 @@ foreground          = ${colors.foreground}
 line-size           = 0
 line-color          = #0f0
 ;
-border-bottom-size  = 2
+; border-bottom-size  = 2
+border-bottom-size  = 0
 border-bottom-color = ${colors.foreground}
 padding-left        = 2
 padding-right       = 2
@@ -59,15 +62,15 @@ font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
 font-2              = FontAwesome:style=Regular:pixelsize=10;1
 font-3              = siji:pixelsize=5;1
 ;
-modules-left        = i3
+modules-left        = i3 xwindow
 modules-center      = date
 modules-right       = spotify pulseaudio wireless-network battery powermenu
-; modules-center      = xwindow
 ; modules-center      = spotify
 ;
 separator           = |
 ;
 tray-position       = right
+tray-detached       = false
 tray-padding        = 2
 ; tray-background     = #0063ff
 ;
@@ -86,7 +89,14 @@ cursor-scroll       = ns-resize
 
 [module/xwindow]
 type                = internal/xwindow
-label               = %title:0:30:...%
+; label               = %title:0:30:...%
+label               = %title%
+label-maxlen        = 50
+
+[module/logomenu]
+type = custom/text
+content = ""
+click-left = bartermapp neofetch 1
 
 [module/i3]
 type                = internal/i3

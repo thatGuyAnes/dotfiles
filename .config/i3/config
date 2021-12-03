@@ -237,7 +237,8 @@ exec --no-startup-id Urxvt
 
 # exec --no-startup-id feh --bg-scale $HOME/Downloads/Triss-Merigold36.jpg
 # exec --no-startup-id feh --bg-fill $HOME/Pictures/Triss_half.jpg
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/glass_space_planet.jpg
+# exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/glass_space_planet.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/tree_bark_Flower_garden_pink_flowers_minimalism_Japan_Cherri_Blossom-2040849.jpg
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.

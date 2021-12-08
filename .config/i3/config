@@ -55,7 +55,8 @@ mode "$mode_redshift" {
 
 #---------------------------------------------------------------------- BINDINGS
 
-bindsym $mod+Return exec --no-startup-id tilix
+bindsym $mod+Return exec --no-startup-id kitty
+# bindsym $mod+Return exec --no-startup-id tilix
 # bindsym $mod+Return exec --no-startup-id urxvt
 
 bindsym $mod+q kill
@@ -220,13 +221,6 @@ client.unfocused        #1d2021   #1d2021   #d79921   #b16286   #1d2021
 client.urgent           #cc241d   #cc241d   #FFFFFF   #cc241d   #cc241d
 
 #---------------------------------------------------------------- INITIALIZATION
-#-------------------------------------------------------------------------------
-# NOTES:
-#   `exec`:             Runs on i3 startup.
-#   `exec_always`:      Will run also on i3 restart.
-#   `--no-startup-id`:  disables startup notification, no hourglass on startup.
-#
-#-------------------------------------------------------------------------------
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id conky
@@ -238,7 +232,8 @@ exec --no-startup-id Urxvt
 # exec --no-startup-id feh --bg-scale $HOME/Downloads/Triss-Merigold36.jpg
 # exec --no-startup-id feh --bg-fill $HOME/Pictures/Triss_half.jpg
 # exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/glass_space_planet.jpg
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/tree_bark_Flower_garden_pink_flowers_minimalism_Japan_Cherri_Blossom-2040849.jpg
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/Triss_M_fire.jpg
+# exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/external-content.duckduckgo.com.png
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -250,7 +245,5 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
 exec_always --no-startup-id blueman-applet
-
-exec_always --no-startup-id /usr/lib/gsd-xsettings
+exec_always --no-startup-id /usr/libexec/gsd-xsettings

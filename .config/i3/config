@@ -92,9 +92,8 @@ bindsym $mod+f fullscreen toggle
 
 #------------------------------------------------------------------ WINDOW FLOAT
 
-for_window [ title="note_window" ] floating enable
-
-bindsym $mod+n exec gnome-terminal -t note_window -- /home/anes/bin/note.sh
+# for_window [ title="note_window" ] floating enable
+# bindsym $mod+n exec gnome-terminal -t note_window -- /home/anes/bin/note.sh
 # bindsym $mod+n exec tilix -e /home/anes/bin/note.sh -title "note_window"
 
 # by ROLE (WM_WINDOW_ROLE)
@@ -190,7 +189,7 @@ bindsym $mod+0 workspace number $ws10
 #---------------------------------------------------------- WORKSPACE ASSIGNMENT
 
 assign [class="browser" instance="Navigator"] → $browser
-assign [class="URxvt" instance="urxvt"] → $term
+assign [class="kitty" instance="kitty"] → $term
 assign [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] → $file
 # assign [class="browser" instance="Devtools"] → $devtools
 
@@ -247,3 +246,21 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec_always --no-startup-id blueman-applet
 exec_always --no-startup-id /usr/libexec/gsd-xsettings
+#--------------------------------------------------------------------- SCRATCHPAD
+# Window with notes:
+for_window [ title="notes" ] floating enable
+for_window [ title="notes" ] resize set 600 400
+for_window [ title="notes" ] move scratchpad
+for_window [ title="notes" ] border pixel 5
+exec --no-startup-id kitty -o font_size=9 --title notes /home/anes/bin/note.sh
+bindsym $mod+n [title="notes"] scratchpad show; [title="notes"] move position center
+# bindsym $mod+n scratchpad show; [instance="notes"] move position center
+
+
+# Window with vimwiki:
+for_window [ title="wiki" ] floating enable
+for_window [ title="wiki" ] resize set 600 400
+for_window [ title="wiki" ] move scratchpad
+for_window [ title="wiki" ] border pixel 5
+exec --no-startup-id kitty -o font_size=9 --title wiki /home/anes/bin/wiki.sh
+bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position center

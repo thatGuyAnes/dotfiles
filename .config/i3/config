@@ -250,10 +250,11 @@ exec_always --no-startup-id /usr/libexec/gsd-xsettings
 # Window with notes:
 for_window [ title="notes" ] floating enable
 for_window [ title="notes" ] resize set 600 400
-for_window [ title="notes" ] move scratchpad
+# for_window [ title="notes" ] move scratchpad
 for_window [ title="notes" ] border pixel 5
-exec --no-startup-id kitty -o font_size=9 --title notes /home/anes/bin/note.sh
-bindsym $mod+n [title="notes"] scratchpad show; [title="notes"] move position center
+# exec --no-startup-id kitty -o font_size=9 --title notes /home/anes/bin/note.sh
+# bindsym $mod+n [title="notes"] scratchpad show; [title="notes"] move position center
+bindsym $mod+n exec kitty -o font_size=9 --title notes /home/anes/bin/note.sh
 # bindsym $mod+n scratchpad show; [instance="notes"] move position center
 
 
@@ -263,4 +264,8 @@ for_window [ title="wiki" ] resize set 600 400
 for_window [ title="wiki" ] move scratchpad
 for_window [ title="wiki" ] border pixel 5
 exec --no-startup-id kitty -o font_size=9 --title wiki /home/anes/bin/wiki.sh
-bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position center
+# XPosition calculation: screenWidth - windowWidth
+# YPosition calculation: screenHeight/2 - windowHeight/2
+bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position 761 px 184 px
+bindsym $mod+shift+g scratchpad show
+

@@ -1,0 +1,628 @@
+; vim:ft=dosini
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+; [MODULE]
+; param = value
+
+; Modules
+; include-file = ~/.config/polybar/modules.ini
+####################################################################### SETTINGS
+
+[colors]
+bg                  = #404552
+background          = #2e3440
+background-alt      = #444
+foreground          = #d8dee9
+foreground-alt      = #888
+primary             = #5e81ec
+secondary           = #e60053
+alert               = #bd2c40
+
+
+
+
+[settings]
+throttle-output     = 5
+throttle-output-for = 10
+throttle-input-for  = 30
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline   = over
+compositing-underline  = over
+compositing-border     = over
+
+[global/wm]
+margin-top          = 0
+margin-bottom       = 0
+
+###################################################################### EXTRA-BAR
+
+[bar/date-bar]
+monitor             = ${env:MONITOR:}
+width               = 10%
+height              = 20
+fixed-center        = true
+offset-x            = 45%
+; offset-y            = 1%
+radius              = 8
+bottom              = true
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+line-size           = 0
+line-color          = #0f0
+; border-bottom-size  = 2
+border-bottom-size  = 0
+border-bottom-color = ${colors.foreground}
+padding-left        = 0
+padding-right       = 0
+module-margin-left  = 0
+module-margin-right = 0
+
+font-0              = Iosevka Term:style=Regular:pixelsize=12;1
+font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
+font-2              = FontAwesome:style=Regular:pixelsize=10;1
+font-3              = siji:pixelsize=5;1
+
+modules-center      = date
+separator           = |
+wm-restack          = i3
+; enable-ipc = true
+override-redirect   = true
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+
+#################################################################### MONITOR-BAR
+[bar/mon-bar]
+monitor             = ${env:MONITOR:}
+width               = 24%
+height              = 20
+fixed-center        = false
+offset-x            = 0%
+; offset-y            = 1%
+radius              = 8
+bottom              = true
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+line-size           = 0
+line-color          = #0f0
+; border-bottom-size  = 2
+border-bottom-size  = 0
+border-bottom-color = ${colors.foreground}
+padding-left        = 0
+padding-right       = 0
+
+module-margin-left  = 1
+module-margin-right = 1
+
+font-0              = UbuntuMono Nerd Font:style=Regular:pixelsize=12;1
+font-1              = UbuntuMono Nerd Font:style=Regular:pixelsize=12;1
+; font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
+; font-2              = FontAwesome:style=Regular:pixelsize=10;1
+; font-3              = siji:pixelsize=5;1
+
+modules-center      = cpu ram wireless-network
+separator           = |
+
+wm-restack          = i3
+; enable-ipc = true
+override-redirect   = true
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+####################################################################### TRAY-BAR
+[bar/tray]
+monitor             = ${env:MONITOR:}
+bottom              = true
+width               = 10%
+height              = 20
+
+fixed-center        = true
+offset-x            = 90%
+; offset-y            = 1%
+;
+radius              = 10 0
+
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+
+line-size           = 2
+line-color          = #0f0
+
+border-bottom-size  = 0
+border-bottom-color = ${colors.foreground}
+
+padding-left        = 2
+padding-right       = 1
+
+module-margin-left  = 1
+module-margin-right = 1
+
+
+separator           = |
+modules-left       = powermenu
+; modules-right       = memory pulseaudio battery powermenu
+; modules-right = runfan memory network colors-switch pulseaudio battery xbacklight checknetwork time date sysmenu
+; modules-center      = spotify
+;
+font-0              = Iosevka Nerd Font:style=Regular:pixelsize=12;1
+; font-0              = Clear Sans Light:style=Light:pixelsize=13;1
+font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
+font-2              = FontAwesome:style=Regular:pixelsize=12;1
+font-3              = siji:pixelsize=5;1
+
+tray-position       = ${env:TRAY_POSITION:right}
+tray-detached       = true
+tray-maxsize        = 20
+tray-transparent    = false
+tray-background     = ${colors.background}
+tray-offset-x       = -10
+tray-offset-y       = 0
+tray-padding        = 2
+tray-scale          = 1.0
+
+
+wm-restack          = i3
+enable-ipc = true
+override-redirect   = true
+;scroll-up            = bspwm-desknext
+;scroll-down          = bspwm-deskprev
+;scroll-up            = i3wm-wsnext
+;scroll-down          = i3wm-wsprev
+;
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+####################################################################### MAIN-BAR
+[bar/main]
+monitor             = ${env:MONITOR:}
+bottom              = false
+width               = 100%
+height              = 28
+
+fixed-center        = true
+; offset-x            = 10%
+; offset-y            = 1%
+;
+radius              = 10 0
+
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+
+line-size           = 2
+line-color          = #0f0
+
+; border-bottom-size  = 2
+border-bottom-size  = 0
+border-bottom-color = ${colors.foreground}
+
+padding-left        = 5
+padding-right       = 5
+
+module-margin-left  = 1
+module-margin-right = 1
+
+font-0              = Iosevka Nerd Font:style=Regular:pixelsize=12;1
+; font-0              = Clear Sans Light:style=Light:pixelsize=13;1
+; font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
+font-2              = FontAwesome:style=Regular:pixelsize=10;1
+font-3              = siji:pixelsize=5;1
+
+; font-0 = "UbuntuMono Nerd Font:size=12;2"
+; font-1 = "UbuntuMono Nerd Font:size=10;1"
+font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;0"
+; font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;0"
+; font-4 = "Font Awesome 5 Brands:pixelsize=8;0"
+
+separator           = |
+modules-left        = i3
+modules-right       = battery vol
+modules-center      = xwindow
+; modules-right       = memory pulseaudio battery powermenu
+; modules-right = runfan memory network colors-switch pulseaudio battery xbacklight checknetwork time date sysmenu
+; modules-center      = spotify
+;
+
+; tray-position       = right
+; tray-position = ${env:TRAY_POSITION:right}
+; tray-detached       = true
+; tray-maxsize        = 20
+; tray-transparent    = false
+; tray-background     = ${colors.background}
+; tray-offset-x       = -10
+; tray-offset-y       = 0
+; tray-padding        = 2
+; tray-scale          = 1.0
+; 
+; padding-right = 15
+
+wm-restack          = i3
+enable-ipc = true
+; override-redirect   = true
+;scroll-up            = bspwm-desknext
+;scroll-down          = bspwm-deskprev
+;scroll-up            = i3wm-wsnext
+;scroll-down          = i3wm-wsprev
+;
+cursor-click        = pointer
+cursor-scroll       = ns-resize
+
+###################################################################### MODULE:i3
+
+[module/i3]
+type = internal/i3
+index-sort = true
+wrapping-scroll = false
+reverse-scroll = false
+; Only show workspaces on the same output as the bar
+pin-workspaces      = true
+
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = false
+
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+
+; Create scroll handlers used to cycle workspaces
+; Default: true
+enable-scroll = true
+
+; Wrap around when reaching the first/last workspace
+; Default: true
+
+; Set the scroll cycle direction
+; Default: true
+
+; Use fuzzy (partial) matching on labels when assigning
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces
+; containing 'code' in the label
+; Default: false
+fuzzy-match = false
+
+;extra icons to choose from
+;http://fontawesome.io/cheatsheet/
+;       v     
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = " "
+
+format              = <label-state> <label-mode>
+label-mode          = %mode%
+label-mode-padding    = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused            = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-underline  = ${colors.primary}
+label-focused-padding    = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding = 1
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-underline =
+
+; visible                = Active workspace on unfocused monitor
+; label-visible            = %index%
+label-visible            = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline  = ${self.label-focused-underline}
+label-visible-padding    = ${self.label-focused-padding}
+;
+; urgent                = Workspace with urgency hint set
+label-urgent            = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding    = 2
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+;##############################################################################
+[module/ram]
+type = internal/memory
+interval = 3
+format = <label>
+format-prefix = 
+format-foreground = #d08770
+format-background = #2e3440
+format-prefix-foreground = #d08770
+label = " %mb_used%"
+
+;##############################################################################
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-foreground = #5e81ac
+format-background = #2e3440
+;format-underline = #5e81ac
+format-prefix = 
+format-prefix-foreground = #5e81ac
+label-font = 1
+format = <label>
+label = "%percentage:3%%"
+
+[module/temps]
+type = custom/script
+exec = ~/.config/polybar/scripts/bartemp.sh
+interval = 1
+label = "%output%"
+format-foreground = #bf616a
+format-background = #2e3440
+format-prefix = 
+format-prefix-foreground = #bf616a
+;format-underline = #5e81ac
+
+[module/battery]
+
+type = internal/battery
+; This is useful in case the battery never reports 100% charge
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+format-foreground = #a3be8c
+format-background = #2e3440
+; format-prefix-foreground = #a3be8c
+; format-underline = #5e81ac
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Charging %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = Discharging %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Fully charged
+
+; Only applies if <ramp-capacity> is used
+label-discharging-foreground = #8fbcbb
+ramp-capacity-0-foreground = #ff0000
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+;##############################################################################
+
+[module/vol]
+type                    = internal/pulseaudio
+format-volume           = <ramp-volume> <label-volume>
+format-prefix-foreground = #8fbcbb
+format-foreground = #8fbcbb
+format-background = #2e3440
+; label-volume            = vol %percentage%%
+label-volume-foreground = #8fbcbb
+ramp-volume-foreground = #8fbcbb
+format-muted = <label-muted>
+label-muted             =  muted
+label-muted-foreground  = #666
+ramp-volume-0           = 
+ramp-volume-1           = 
+ramp-volume-2           = 
+click-right = pavucontrol
+
+; [module/bright]
+; type = custom/script
+; exec = ~/.config/polybar/scripts/scrnbrt.sh
+; interval = 1
+; label = " %output%"
+; format-foreground = #ebcb8b
+; format-background = #2e3440
+; format-prefix = "  "
+; format-prefix-foreground = #ebcb8b
+;format-underline = #5e81ac
+
+; [module/hd]
+; type = custom/script
+; exec = ~/.config/polybar/scripts/hd.sh
+; interval = 1
+; label = "%output%"
+; format-foreground = #88c0d0
+; format-background = #2e3440
+; format-prefix = "  "
+; format-prefix-foreground = #88c0d0
+; ;format-underline = #5e81ac
+; 
+; [module/weather]
+; type = custom/script
+; exec = ~/.config/polybar/scripts/weather.sh
+; interval = 3600
+; label = " %output%"
+; format-foreground = #d8dee9
+; format-background = #2e3440
+; format-prefix = " ️️ "
+; format-prefix-foreground = #ebcb8b
+; format-underline = #5e81ac
+
+[module/date]
+type = internal/date
+interval = 1
+date     = " %Y-%m-%d"
+date-alt = " %Y-%m-%d"
+format-prefix = 
+time     = %H:%M
+time-alt = %H:%M:%S
+label    = %date% %time%
+;format-prefix-foreground = #8fbcbb
+format-foreground = #d8dee9
+format-background = #2e3440
+
+
+[module/wireless-network]
+; Use `ip link` to get the names of the interfaces
+; on your machine.
+type                   = internal/network
+interface              = wlp0s20f3
+interval               = 3.0
+;
+format-connected       = <ramp-signal> <label-connected>
+fromat-connected-padding = 0
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; label-connected        = %signal%
+label-connected        = %signal% Down:%downspeed:5% Up:%upspeed:5%
+;
+format-disconnected    = <label-disconnected>
+label-disconnected = Not Connected
+;
+ramp-signal-0 = " "
+ramp-signal-1 = " "
+ramp-signal-2 = " "
+
+; ramp-signal-foreground = ${colors.foreground-alt}
+; click-right = pavucontrol
+;##############################################################################
+;
+;##############################################################################
+[module/xwindow]
+type                = internal/xwindow
+; label               = %title:0:30:...%
+label               = %title%
+label-maxlen        = 50
+
+;##############################################################################
+[module/powermenu]
+type                = custom/menu
+expand-right        = true
+format-spacing      = 1
+label-open                 = 
+label-open-foreground      = ${colors.secondary}
+; label-close                = cancel
+; label-close-foreground     = ${colors.secondary}
+; label-separator            = |
+; label-separator-foreground = ${colors.foreground-alt}
+; 
+; menu-0-0      = reboot
+; menu-0-0-exec = systemctl reboot
+; 
+; menu-0-1      = power off
+; menu-0-1-exec = systemctl poweroff
+; ;
+; menu-1-0 = cancel
+; menu-1-0-exec = menu-open-0
+; click-left = nitrogen
+; menu-1-1 = reboot
+; menu-1-1-exec = sudo reboot
+;
+; menu-2-0 = power off
+; menu-2-0-exec = sudo poweroff
+; menu-2-1 = cancel
+; menu-2-1-exec = menu-open-0
+;##############################################################################

@@ -1,0 +1,8 @@
+configuration {
+    /* theme: "/usr/share/rofi/themes/DarkBlue.rasi"; */
+    font: "Clear Sans 15";
+    sidebar-mode: true;
+    show-icons: true;
+    icon-theme: "Papirus";
+}
+@import "/usr/share/rofi/themes/android_notification.rasi"

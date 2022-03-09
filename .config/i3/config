@@ -16,11 +16,11 @@ gaps outer 10
 gaps bottom 5
 gaps inner 20
 
-workspace $ws1 gaps inner 5
-workspace $ws1 gaps outer 10
+# workspace $ws1 gaps inner 5
+# workspace $ws1 gaps outer 10
 # workspace $ws1 gaps bottom 10
-for_window [class="browser"] border pixel 0
-for_window [class="firefox-aurora"] border pixel 0
+# for_window [class="browser"] border pixel 0
+# for_window [class="firefox-aurora"] border pixel 0
 
 #------------------------------------------------------------------------- MODES
 
@@ -111,10 +111,10 @@ bindsym $mod+r mode "$mode_launcher"
 # Exit menu
 bindsym $mod+Shift+e mode "Exit"; exec i3-nagbar \
 	-t warning \
-	-m '❕ SESSION EXIT OPTIONS' \
-	-B '❌ [L]ogout' 	'i3-msg exit' \
-	-B '🌀️ [R]estart'	'systemctl -i reboot' \
-	-B '⚡️ [S]hutdown'	'systemctl -i poweroff'
+	-m ' SESSION EXIT OPTIONS' \
+	-B ' [L]ogout' 	'i3-msg exit' \
+	-B ' [R]estart'	'systemctl -i reboot' \
+	-B ' [S]hutdown'	'systemctl -i poweroff'
 
 bindsym $mod+Shift+space floating toggle
 
@@ -236,7 +236,8 @@ for_window [window_role="task_dialog"]              floating enable
 #       xprop | grep -i 'class'
 # for_window [class="Org.gnome.Nautilus"]              floating enable
 for_window [class="Blueman-manager"]                floating enable
-for_window [class="Brave-browser"]                floating enable
+for_window [class="Brave-browser"]                  floating enable
+for_window [class="firefox-aurora"]                 floating enable
 for_window [class="File-roller"]                    floating enable
 for_window [class="Font-manager"]                   floating enable
 for_window [class="Galculator"]                     floating enable

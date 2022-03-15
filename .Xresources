@@ -21,8 +21,8 @@ URxvt.mouseWheelScrollPage: false
 ! URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
 ! URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
 
-URxvt.font: xft:Fira Code:size=15
-URxvt.boldFont: xft:Fira Code:size=15
+URxvt.font: xft:Fira Code:size=12
+URxvt.boldFont: xft:Fira Code:size=12
 
 ! URxvt.font: xft:Monoid Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:Monoid Nerd Font Mono:size=12
@@ -78,7 +78,7 @@ URxvt.borderLess: false
 
 ! #### Composite- real transparency;
 urxvt*depth: 32
-urxvt*background: [90]#1d2021
+urxvt*background: [80]#1d2021
 
 !-------------------------------------------------------------------COLOR_SCHEME
 

@@ -1,8 +1,6 @@
 # vim: filetype=i3config
 
 #-------------------------------------------------------------- GENERAL SETTINGS
-
-
 default_border normal
 set $mod Mod1
 font pango:Iosevka Term 11
@@ -10,17 +8,16 @@ font pango:Iosevka Term 11
 floating_modifier $mod
 
 #-------------------------------------------------------------------------- GAPS
-
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 gaps outer 10
-gaps bottom 5
-gaps inner 20
+# gaps bottom 5
+gaps inner 30
 
-# workspace $ws1 gaps inner 5
-# workspace $ws1 gaps outer 10
-# workspace $ws1 gaps bottom 10
-# for_window [class="browser"] border pixel 0
-# for_window [class="firefox-aurora"] border pixel 0
+workspace $ws1 gaps inner 0
+workspace $ws1 gaps outer 0
+workspace $ws1 gaps bottom 0
+for_window [class="Brave-Browser"] border pixel 0
+for_window [class="firefox-aurora"] border pixel 0
 
 #------------------------------------------------------------------------- MODES
 
@@ -97,7 +94,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun -opacity "85"
 
 # Open floating urxvt terminal
-bindsym $mod+Shift+u exec --no-startup-id gnome-terminal
+bindsym $mod+Shift+u exec --no-startup-id urxvt
 
 # Reload i3 config
 bindsym $mod+Shift+c reload
@@ -227,6 +224,7 @@ workspace_layout default
 # by ROLE (WM_WINDOW_ROLE)
 # Tip: To find out what these values might be run:
 #       xprop | grep -i 'role'
+
 for_window [window_role="app"]                      floating enable
 for_window [window_role="pop-up"]                   floating enable
 for_window [window_role="task_dialog"]              floating enable
@@ -236,14 +234,14 @@ for_window [window_role="task_dialog"]              floating enable
 #       xprop | grep -i 'class'
 # for_window [class="Org.gnome.Nautilus"]              floating enable
 for_window [class="Blueman-manager"]                floating enable
-for_window [class="Brave-browser"]                  floating enable
+# for_window [class="Brave-browser"]                  floating enable
 for_window [class="firefox-aurora"]                 floating enable
 for_window [class="File-roller"]                    floating enable
 for_window [class="Font-manager"]                   floating enable
 for_window [class="Galculator"]                     floating enable
 for_window [class="Gnome-calculator"]               floating enable
 for_window [class="Gnome-font-viewer"]              floating enable
-for_window [class="Gnome-terminal"]                          floating enable
+# for_window [class="Gnome-terminal"]                          floating enable
 for_window [class="Gthumb"]                         floating enable
 for_window [class="Pavucontrol"]                    floating enable
 for_window [class="Totem"]                          floating enable

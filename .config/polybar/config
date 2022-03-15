@@ -33,9 +33,6 @@ primary             = #5e81ec
 secondary           = #e60053
 alert               = #bd2c40
 
-
-
-
 [settings]
 throttle-output     = 5
 throttle-output-for = 10
@@ -129,12 +126,12 @@ cursor-scroll       = ns-resize
 ####################################################################### TRAY-BAR
 [bar/tray]
 monitor             = ${env:MONITOR:}
-bottom              = true
-width               = 10%
-height              = 20
+bottom              = false
+width               = 20%
+height              = 28
 
 fixed-center        = true
-offset-x            = 90%
+offset-x            = 80%
 ; offset-y            = 1%
 ;
 radius              = 10 0
@@ -200,7 +197,7 @@ fixed-center        = true
 ; offset-x            = 10%
 ; offset-y            = 1%
 ;
-radius              = 10 0
+radius              = 0
 
 background          = ${colors.background}
 foreground          = ${colors.foreground}
@@ -213,7 +210,7 @@ border-bottom-size  = 0
 border-bottom-color = ${colors.foreground}
 
 padding-left        = 5
-padding-right       = 5
+padding-right       = 15
 
 module-margin-left  = 1
 module-margin-right = 1
@@ -231,26 +228,25 @@ font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;0"
 ; font-4 = "Font Awesome 5 Brands:pixelsize=8;0"
 
 separator           = |
-modules-left        = i3
-modules-right       = battery vol
-modules-center      = xwindow
+modules-left        = i3 xwindow
+modules-right       = cpu ram battery vol
+modules-center      = date
 ; modules-right       = memory pulseaudio battery powermenu
 ; modules-right = runfan memory network colors-switch pulseaudio battery xbacklight checknetwork time date sysmenu
 ; modules-center      = spotify
 ;
 
-; tray-position       = right
-; tray-position = ${env:TRAY_POSITION:right}
-; tray-detached       = true
-; tray-maxsize        = 20
-; tray-transparent    = false
-; tray-background     = ${colors.background}
-; tray-offset-x       = -10
-; tray-offset-y       = 0
-; tray-padding        = 2
-; tray-scale          = 1.0
+tray-position       = ${env:TRAY_POSITION:right}
+tray-detached       = true
+tray-maxsize        = 20
+tray-transparent    = false
+tray-background     = ${colors.background}
+tray-offset-x       = -10
+tray-offset-y       = 0
+tray-padding        = 2
+tray-scale          = 1.0
 ; 
-; padding-right = 15
+; padding-right = 50
 
 wm-restack          = i3
 enable-ipc = true

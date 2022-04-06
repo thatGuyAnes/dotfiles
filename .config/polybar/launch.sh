@@ -15,30 +15,30 @@ if type "xrandr" > /dev/null; then
 else
   polybar --reload main -c ~/.config/polybar/config &
 fi
-# Tray bar
-if type "xrandr" > /dev/null; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload date-bar &
-  done
-else
-  polybar --reload date-bar -c ~/.config/polybar/config &
-fi
+# date bar
+# if type "xrandr" > /dev/null; then
+#   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+#     MONITOR=$m polybar --reload date-bar &
+#   done
+# else
+#   polybar --reload date-bar -c ~/.config/polybar/config &
+# fi
 # monitor bar
-if type "xrandr" > /dev/null; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload mon-bar &
-  done
-else
-  polybar --reload mon-bar -c ~/.config/polybar/config &
-fi
+# if type "xrandr" > /dev/null; then
+#   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+#     MONITOR=$m polybar --reload mon-bar &
+#   done
+# else
+#   polybar --reload mon-bar -c ~/.config/polybar/config &
+# fi
 # tray bar
-if type "xrandr" > /dev/null; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload tray &
-  done
-else
-  polybar --reload tray -c ~/.config/polybar/config &
-fi
+# if type "xrandr" > /dev/null; then
+#   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+#     MONITOR=$m polybar --reload tray &
+#   done
+# else
+#   polybar --reload tray -c ~/.config/polybar/config &
+# fi
 ;;
 
 

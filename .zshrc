@@ -195,7 +195,7 @@ alias rs='npm run start'
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export TERMINAL=kitty
+export TERMINAL=gnome-terminal
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -244,4 +244,7 @@ unsetopt menu_complete
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Create folder and cd.
+function mkcd() { mkdir -p "$@" && cd "$_"; }

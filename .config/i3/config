@@ -19,6 +19,11 @@ workspace $ws1 gaps bottom 0
 for_window [class="Brave-Browser"] border pixel 0
 for_window [class="firefox-aurora"] border pixel 0
 
+workspace $ws2 gaps inner 0
+workspace $ws2 gaps outer 0
+workspace $ws2 gaps bottom 0
+for_window [class="Gnome-terminal"] border pixel 0
+
 #------------------------------------------------------------------------- MODES
 
 set $mode_launcher Select option: (r)esize | (s)redshift | (q)uit.

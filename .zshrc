@@ -196,33 +196,41 @@ alias rs='npm run start'
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export TERMINAL=gnome-terminal
-bindkey -v
 export KEYTIMEOUT=1
+# export FZF_DEFAULT_COMMAND="find --exclude={node_modules} --type f"
+export FZF_DEFAULT_OPTS="
+--height 40%
+--layout=reverse
+--border
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+"
 
-cursor_mode() {
-    # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
-    cursor_block='\e[2 q'
-    cursor_beam='\e[6 q'
-
-    function zle-keymap-select {
-        if [[ ${KEYMAP} == vicmd ]] ||
-            [[ $1 = 'block' ]]; then
-            echo -ne $cursor_block
-        elif [[ ${KEYMAP} == main ]] ||
-            [[ ${KEYMAP} == viins ]] ||
-            [[ ${KEYMAP} = '' ]] ||
-            [[ $1 = 'beam' ]]; then
-            echo -ne $cursor_beam
-        fi
-    }
-
-    zle-line-init() {
-        echo -ne $cursor_beam
-    }
-
-    zle -N zle-keymap-select
-    zle -N zle-line-init
-}
+bindkey -v
+#
+# cursor_mode() {
+#     # See https://ttssh2.osdn.jp/manual/4/en/usage/tips/vim.html for cursor shapes
+#     cursor_block='\e[2 q'
+#     cursor_beam='\e[6 q'
+#
+#     function zle-keymap-select {
+#         if [[ ${KEYMAP} == vicmd ]] ||
+#             [[ $1 = 'block' ]]; then
+#             echo -ne $cursor_block
+#         elif [[ ${KEYMAP} == main ]] ||
+#             [[ ${KEYMAP} == viins ]] ||
+#             [[ ${KEYMAP} = '' ]] ||
+#             [[ $1 = 'beam' ]]; then
+#             echo -ne $cursor_beam
+#         fi
+#     }
+#
+#     zle-line-init() {
+#         echo -ne $cursor_beam
+#     }
+#
+#     zle -N zle-keymap-select
+#     zle -N zle-line-init
+# }
 
 # cursor_mode
 
@@ -246,5 +254,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+#----------------------------------------------------------------------FUNCTIONS
+
 # Create folder and cd.
 function mkcd() { mkdir -p "$@" && cd "$_"; }
+
+# Switch git branch using fzf
+function gcf() { git checkout $(git branch -r | fzf) }

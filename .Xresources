@@ -18,13 +18,13 @@ URxvt.mouseWheelScrollPage: false
 ! URxvt.font: xft:Inconsolata Nerd Font Mono:size=15
 ! URxvt.boldFont: xft:Inconsolata Nerd Font Mono:size=15
 
-! URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
+URxvt.font: xft:UbuntuMono Nerd Font Mono:size=15
 ! URxvt.boldFont: xft:UbuntuMono Nerd Font Mono:size=15
 
-/* URxvt.font: xft:Fira Code:size=12 */
-/* URxvt.boldFont: xft:Fira Code:size=12 */
+! URxvt.font: xft:Fira Code:size=12
+! URxvt.boldFont: xft:Fira Code:size=12
 
-URxvt.font: xft:Fixed:style=Regular
+! URxvt.font: xft:Fixed:style=Regular
 
 ! URxvt.font: xft:Monoid Nerd Font Mono:size=12
 ! URxvt.boldFont: xft:Monoid Nerd Font Mono:size=12

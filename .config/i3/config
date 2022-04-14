@@ -198,10 +198,9 @@ bindsym $mod+n exec kitty -o font_size=12 --title notes /home/anes/bin/note.sh
 # bindsym $mod+n scratchpad show; [instance="notes"] move position center
 
 
-bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position center
 
-bindsym $mod+shift+g scratchpad show
-bindsym $mod+g move scratchpad
+bindsym $mod+g scratchpad show
+bindsym $mod+shift+g move scratchpad
 
 # for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
 # send any app to a scratchpad
@@ -215,6 +214,9 @@ bindsym $mod+g move scratchpad
 # bindsym $mod+Ctrl+Up resize grow height 10 px or 10 ppt
 # bindsym $mod+Ctrl+Down resize shrink height 10 px or 10 ppt
 # bindsym $mod+Ctrl+Left resize grow width 10 px or 10 ppt
+
+# Change keyboard layout
+# exec "setxkbmap" -option 'grp:alt_shift_toggle'"
 
 #----------------------------------------------------------------- WINDOW LAYOUT
 
@@ -343,6 +345,7 @@ exec_always --no-startup-id ~/.config/i3/startup.sh
 # exec --no-startup-id conky
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id redshift-gtk
+
 # exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1   # second monitor as VGA
 # exec --no-startup-id Urxvt
 
@@ -389,7 +392,11 @@ for_window [ title="wiki" ] floating enable
 for_window [ title="wiki" ] resize set 800 600
 for_window [ title="wiki" ] move scratchpad
 for_window [ title="wiki" ] border pixel 5
-exec --no-startup-id kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
+
+# exec --no-startup-id kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
+bindsym $mod+shift+n exec kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
+# bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position center
+
 # XPosition calculation: screenWidth - windowWidth
 # YPosition calculation: screenHeight/2 - windowHeight/2
 

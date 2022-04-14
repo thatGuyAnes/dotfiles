@@ -67,7 +67,15 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+  git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  vi-mode
+)
+
+
+VI_MODE_SET_CURSOR=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -205,6 +213,7 @@ export FZF_DEFAULT_OPTS="
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 "
 
+# vi keybindings:
 bindkey -v
 #
 # cursor_mode() {
@@ -212,24 +221,24 @@ bindkey -v
 #     cursor_block='\e[2 q'
 #     cursor_beam='\e[6 q'
 #
-#     function zle-keymap-select {
-#         if [[ ${KEYMAP} == vicmd ]] ||
-#             [[ $1 = 'block' ]]; then
-#             echo -ne $cursor_block
-#         elif [[ ${KEYMAP} == main ]] ||
-#             [[ ${KEYMAP} == viins ]] ||
-#             [[ ${KEYMAP} = '' ]] ||
-#             [[ $1 = 'beam' ]]; then
-#             echo -ne $cursor_beam
-#         fi
-#     }
+# function zle-keymap-select {
+#   if [[ ${KEYMAP} == vicmd ]] ||
+#       [[ $1 = 'block' ]]; then
+#       echo -ne $cursor_block
+#   elif [[ ${KEYMAP} == main ]] ||
+#       [[ ${KEYMAP} == viins ]] ||
+#       [[ ${KEYMAP} = '' ]] ||
+#       [[ $1 = 'beam' ]]; then
+#       echo -ne $cursor_beam
+#   fi
+# }
 #
-#     zle-line-init() {
-#         echo -ne $cursor_beam
-#     }
+# zle-line-init() {
+#   echo -ne $cursor_beam
+# }
 #
-#     zle -N zle-keymap-select
-#     zle -N zle-line-init
+# zle -N zle-keymap-select
+# zle -N zle-line-init
 # }
 
 # cursor_mode

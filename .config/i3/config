@@ -8,7 +8,7 @@ font pango:Iosevka Term 11
 floating_modifier $mod
 
 #-------------------------------------------------------------------------- GAPS
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 4
 gaps outer 10
 # gaps bottom 5
 gaps inner 30
@@ -16,12 +16,12 @@ gaps inner 30
 workspace $ws1 gaps inner 0
 workspace $ws1 gaps outer 0
 workspace $ws1 gaps bottom 0
-for_window [class="Brave-Browser"] border pixel 0
+for_window [class="Brave-browser"] border pixel 0
 for_window [class="firefox-aurora"] border pixel 0
 
-workspace $ws2 gaps inner 0
-workspace $ws2 gaps outer 0
-workspace $ws2 gaps bottom 0
+workspace $ws2 gaps inner 10
+workspace $ws2 gaps outer 10
+# workspace $ws2 gaps bottom 30
 for_window [class="Gnome-terminal"] border pixel 0
 
 #------------------------------------------------------------------------- MODES
@@ -118,10 +118,6 @@ bindsym $mod+Shift+e mode "Exit"; exec i3-nagbar \
 	-B ' [R]estart'	'systemctl -i reboot' \
 	-B ' [S]hutdown'	'systemctl -i poweroff'
 
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -130,10 +126,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # Split horizontally
-bindsym $mod+Ctrl+h split h
+bindsym $mod+Ctrl+v split h
 
 # Split vertically
-bindsym $mod+Ctrl+v split v
+bindsym $mod+Ctrl+x split v
 
 # Change container layout (stacked, tabbe, split)
 bindsym $mod+y layout stacking; exec notify-send "Split: stacking"
@@ -152,6 +148,12 @@ bindsym $mod+l focus right
 
 # Focus parent
 bindsym $mod+a focus parent
+# focus the child container
+bindsym $mod+shift+a focus child
+
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -177,9 +179,6 @@ bindsym $mod+Control+8 move container to workspace number $ws8; workspace number
 bindsym $mod+Control+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+Control+0 move container to workspace number $ws10; workspace number $ws10
 
-# focus the child container
-# bindsym $mod+d focus child
-
 # Navigate between workspaces
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -198,10 +197,9 @@ bindsym $mod+n exec kitty -o font_size=12 --title notes /home/anes/bin/note.sh
 # bindsym $mod+n scratchpad show; [instance="notes"] move position center
 
 
-bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position center
 
-bindsym $mod+shift+g scratchpad show
-bindsym $mod+g move scratchpad
+bindsym $mod+g scratchpad show
+bindsym $mod+shift+g move scratchpad
 
 # for_window [instance="scratchpad"] move window to scratchpad, scratchpad show
 # send any app to a scratchpad
@@ -215,6 +213,9 @@ bindsym $mod+g move scratchpad
 # bindsym $mod+Ctrl+Up resize grow height 10 px or 10 ppt
 # bindsym $mod+Ctrl+Down resize shrink height 10 px or 10 ppt
 # bindsym $mod+Ctrl+Left resize grow width 10 px or 10 ppt
+
+# Change keyboard layout
+# exec "setxkbmap" -option 'grp:alt_shift_toggle'"
 
 #----------------------------------------------------------------- WINDOW LAYOUT
 
@@ -328,7 +329,7 @@ set $t_chromium_white #C8C3B6
 
 # green gruvbox
 # class                 border    backgr_   text      indic_    child_border
-client.focused          #D4D4D4   #98971a   #1d2021   #C8C3B6   #8FB9A8
+client.focused          #D4D4D4   #98971a   #1d2021   #50fa7b   $blue
 client.focused_inactive #1d2021   #1d2021   #d79921   #1d2021   #1d2021
 client.unfocused        #1d2021   #1d2021   #d79921   #b16286   #1d2021
 client.urgent           #cc241d   #cc241d   #FFFFFF   #cc241d   #cc241d
@@ -343,6 +344,7 @@ exec_always --no-startup-id ~/.config/i3/startup.sh
 # exec --no-startup-id conky
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id redshift-gtk
+
 # exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1   # second monitor as VGA
 # exec --no-startup-id Urxvt
 
@@ -376,7 +378,7 @@ exec --no-startup-id nitrogen --restore
 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
-#--------------------------------------------------------------------- SCRATCHPAD
+#-------------------------------------------------------------------- SCRATCHPAD
 # Window with notes:
 for_window [ title="notes" ] floating enable
 for_window [ title="notes" ] resize set 800 600
@@ -389,7 +391,11 @@ for_window [ title="wiki" ] floating enable
 for_window [ title="wiki" ] resize set 800 600
 for_window [ title="wiki" ] move scratchpad
 for_window [ title="wiki" ] border pixel 5
-exec --no-startup-id kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
+
+# exec --no-startup-id kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
+bindsym $mod+shift+n exec kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
+# bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position center
+
 # XPosition calculation: screenWidth - windowWidth
 # YPosition calculation: screenHeight/2 - windowHeight/2
 

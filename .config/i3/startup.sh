@@ -12,7 +12,7 @@ picom -CGb &
 ## Launch nitrogen
 nitrogen --restore &
 
-## Set UK keyboard
-# setxkbmap -layout gb &
+## Set EN keyboard
+setxkbmap -layout us
 
 

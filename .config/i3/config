@@ -8,22 +8,31 @@ font pango:Iosevka Term 11
 floating_modifier $mod
 
 #-------------------------------------------------------------------------- GAPS
-for_window [class=".*"] border pixel 4
+for_window [class=".*"] border pixel 2
+gaps inner 10
 gaps outer 10
-# gaps bottom 5
-gaps inner 30
+# gaps bottom 20
+# gaps top 20
 
-workspace $ws1 gaps inner 0
-workspace $ws1 gaps outer 0
-workspace $ws1 gaps bottom 0
-for_window [class="Brave-browser"] border pixel 0
-for_window [class="firefox-aurora"] border pixel 0
+# gaps inner all set 20
+# gaps outer all plus 5
+# gaps horizontal current plus 40
 
-workspace $ws2 gaps inner 10
-workspace $ws2 gaps outer 10
+# workspace $ws1 gaps inner 0
+# workspace $ws1 gaps outer 0
+# workspace $ws1 gaps bottom 0
+# for_window [class="Brave-browser"] border pixel 0
+# for_window [class="firefox-aurora"] border pixel 0
+
+# workspace $ws2 gaps inner 10
+# workspace $ws2 gaps outer 10
+
 # workspace $ws2 gaps bottom 30
-for_window [class="Gnome-terminal"] border pixel 0
+# for_window [class="Gnome-terminal"] border pixel 0
 
+#----------------------------------------------------------------------- BORDERS
+# Activate smart borders: draw borders only of more than one window in workspace
+smart_borders on
 #------------------------------------------------------------------------- MODES
 
 set $mode_launcher Select option: (r)esize | (s)redshift | (q)uit.
@@ -60,7 +69,6 @@ mode "$mode_redshift" {
   bindsym q mode "default"
 }
 
-
 mode "Exit" {
 	bindsym l exec i3-msg exit
 	bindsym r exec systemctl -i reboot
@@ -79,6 +87,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 #------------------------------------------------------------ BRIGHTNESS CONTROL
+# Doesn't work on lenovo keyboard !!!
 # increase screen brightness
 bindsym XF86MonBrightnessUp exec light -A 20; notify-send "brightness up"
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20; notify-send "brightness up"
@@ -99,7 +108,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show drun -opacity "85"
 
 # Open floating urxvt terminal
-bindsym $mod+Shift+u exec --no-startup-id urxvt
+# bindsym $mod+Shift+u exec --no-startup-id urxvt
+
+# Open floating alacitty terminal
+bindsym $mod+Shift+u exec --no-startup-id alacritty
 
 # Reload i3 config
 bindsym $mod+Shift+c reload
@@ -194,9 +206,8 @@ bindsym $mod+0 workspace number $ws10
 
 # bindsym $mod+n [title="notes"] scratchpad show; [title="notes"] move position center
 bindsym $mod+n exec kitty -o font_size=12 --title notes /home/anes/bin/note.sh
+bindsym $mod+shift+n exec kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
 # bindsym $mod+n scratchpad show; [instance="notes"] move position center
-
-
 
 bindsym $mod+g scratchpad show
 bindsym $mod+shift+g move scratchpad
@@ -206,7 +217,6 @@ bindsym $mod+shift+g move scratchpad
 # bindsym $mod+Shift+BackSpace move scratchpad
 # toggle scratchpads
 # bindsym $mod+backslash scratchpad show
-
 
 # resize window (can also use the mouse for that)
 # bindsym $mod+Ctrl+Right resize shrink width 10 px or 10 ppt
@@ -248,10 +258,12 @@ for_window [class="Galculator"]                     floating enable
 for_window [class="Gnome-calculator"]               floating enable
 for_window [class="Gnome-font-viewer"]              floating enable
 # for_window [class="Gnome-terminal"]                          floating enable
+for_window [class="org.gnome.Characters"]           floating enable
 for_window [class="Gthumb"]                         floating enable
 for_window [class="Pavucontrol"]                    floating enable
 for_window [class="Totem"]                          floating enable
 for_window [class="URxvt"]                          floating enable
+for_window [class="Alacritty"]                          floating enable
 for_window [class="Xdg-desktop-portal-gtk"]         floating enable
 for_window [class="fontmatrix"]                     floating enable
 for_window [class="vlc"]                            floating enable
@@ -337,15 +349,19 @@ client.urgent           #cc241d   #cc241d   #FFFFFF   #cc241d   #cc241d
 #---------------------------------------------------------------- INITIALIZATION
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# exec_always --no-startup-id ~/.config/polybar/launch_multimonitor.sh
+exec_always --no-startup-id ~/.config/polybar/launch_multimonitor.sh
 exec_always --no-startup-id ~/.config/i3/startup.sh
+
+
+exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # exec --no-startup-id conky
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id redshift-gtk
 
 # exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1   # second monitor as VGA
+# second monitor as HDMI
+exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1  
 # exec --no-startup-id Urxvt
 
 # Using feh to setup a wallpaper:
@@ -374,26 +390,25 @@ exec --no-startup-id dnfdragora-updater
 exec_always --no-startup-id xfce4-power-manager
 
 # exec_always --no-startup-id xfce4-panel --disable-wm-check
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 #-------------------------------------------------------------------- SCRATCHPAD
 # Window with notes:
-for_window [ title="notes" ] floating enable
-for_window [ title="notes" ] resize set 800 600
+# for_window [ title="notes" ] floating enable
+# for_window [ title="notes" ] resize set 800 600
 # for_window [ title="notes" ] move scratchpad
-for_window [ title="notes" ] border pixel 5
+# for_window [ title="notes" ] border pixel 5
 # exec --no-startup-id kitty -o font_size=9 --title notes /home/anes/bin/note.sh
 
 # Window with vimwiki:
-for_window [ title="wiki" ] floating enable
-for_window [ title="wiki" ] resize set 800 600
-for_window [ title="wiki" ] move scratchpad
-for_window [ title="wiki" ] border pixel 5
+# for_window [ title="wiki" ] floating enable
+# for_window [ title="wiki" ] resize set 800 600
+# for_window [ title="wiki" ] move scratchpad
+# for_window [ title="wiki" ] border pixel 5
 
 # exec --no-startup-id kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
-bindsym $mod+shift+n exec kitty -o font_size=12 --title wiki /home/anes/bin/wiki.sh
 # bindsym $mod+shift+n [title="wiki"] scratchpad show; [title="wiki"] move position center
 
 # XPosition calculation: screenWidth - windowWidth

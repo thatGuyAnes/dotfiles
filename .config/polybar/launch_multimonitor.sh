@@ -13,9 +13,9 @@
     tray_output=$1
 
     	for m in $outputs; do
-    		if [ $m == $1 ] 
-    		then		
-    			MONITOR1=$m polybar --reload main-i3 -c ~/.config/polybar/i3config &	
+    		if [ $m == $1 ]
+    		then	
+    			MONITOR1=$m polybar --reload main-i3 -c ~/.config/polybar/i3config &
     		elif [ $m == $2 ]
     		then
     		    tray_output=$m
@@ -26,10 +26,10 @@
     	done
 
       for m in $outputs; do
-      	export MONITOR1=$1
-      	export MONITOR2=$2
-       	export TRAY_POSITION=none
-        if [[ $m == $tray_output ]]; then
-           TRAY_POSITION=right
+      	# export MONITOR1=$1
+      	# export MONITOR2=$2
+       # 	export TRAY_POSITION=none
+       #  if [[ $m == $tray_output ]]; then
+       #     TRAY_POSITION=right
       fi
     done

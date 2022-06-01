@@ -22,11 +22,18 @@
 ; Modules
 ; include-file = ~/.config/polybar/modules.ini
 ####################################################################### SETTINGS
+; Transparency: 
+; FF is full opaque or not transparent.
+; 00 is fully transparent or no coloring at all.
+; These are hexadecimal numbers.
+; They range from 0, 1, 2,.., 9, A, B, C, D, E, F
 
 [colors]
 bg                  = #404552
-background          = #2e3440
-background-alt      = #444
+background          = #55404552
+; bg                  = #000000
+; background          = #000000
+background-alt      = #55444444
 foreground          = #d8dee9
 foreground-alt      = #888
 primary             = #5e81ec
@@ -45,7 +52,7 @@ compositing-underline  = over
 compositing-border     = over
 
 [global/wm]
-margin-top          = 0
+margin-top          = 10
 margin-bottom       = 0
 
 ###################################################################### EXTRA-BAR
@@ -55,7 +62,7 @@ monitor             = ${env:MONITOR:}
 width               = 10%
 height              = 20
 fixed-center        = true
-offset-x            = 45%
+offset-x            = 50%
 ; offset-y            = 1%
 radius              = 8
 bottom              = true
@@ -71,10 +78,10 @@ padding-right       = 0
 module-margin-left  = 0
 module-margin-right = 0
 
-font-0              = Iosevka Term:style=Regular:pixelsize=12;1
-font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
-font-2              = FontAwesome:style=Regular:pixelsize=10;1
-font-3              = siji:pixelsize=5;1
+; font-0              = Iosevka Term:style=Regular:pixelsize=12;1
+; font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
+; font-2              = FontAwesome:style=Regular:pixelsize=10;1
+; font-3              = siji:pixelsize=5;1
 
 modules-center      = date
 separator           = |
@@ -95,6 +102,7 @@ offset-x            = 0%
 ; offset-y            = 1%
 radius              = 8
 bottom              = true
+; background          = ${colors.background}
 background          = ${colors.background}
 foreground          = ${colors.foreground}
 line-size           = 0
@@ -108,8 +116,8 @@ padding-right       = 0
 module-margin-left  = 1
 module-margin-right = 1
 
-font-0              = UbuntuMono Nerd Font:style=Regular:pixelsize=12;1
-font-1              = UbuntuMono Nerd Font:style=Regular:pixelsize=12;1
+; font-0              = UbuntuMono Nerd Font:style=Regular:pixelsize=12;1
+; font-1              = UbuntuMono Nerd Font:style=Regular:pixelsize=12;1
 ; font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
 ; font-2              = FontAwesome:style=Regular:pixelsize=10;1
 ; font-3              = siji:pixelsize=5;1
@@ -158,11 +166,11 @@ modules-left       = powermenu
 ; modules-right = runfan memory network colors-switch pulseaudio battery xbacklight checknetwork time date sysmenu
 ; modules-center      = spotify
 ;
-font-0              = Iosevka Nerd Font:style=Regular:pixelsize=12;1
-; font-0              = Clear Sans Light:style=Light:pixelsize=13;1
-font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
-font-2              = FontAwesome:style=Regular:pixelsize=12;1
-font-3              = siji:pixelsize=5;1
+; font-0              = Iosevka Nerd Font:style=Regular:pixelsize=12;1
+; ; font-0              = Clear Sans Light:style=Light:pixelsize=13;1
+; font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
+; font-2              = FontAwesome:style=Regular:pixelsize=12;1
+; font-3              = siji:pixelsize=5;1
 
 tray-position       = ${env:TRAY_POSITION:right}
 tray-detached       = true
@@ -191,7 +199,7 @@ cursor-scroll       = ns-resize
 monitor             = ${env:MONITOR:}
 bottom              = false
 width               = 100%
-height              = 28
+height              = 20
 
 fixed-center        = true
 ; offset-x            = 10%
@@ -209,14 +217,14 @@ line-color          = #0f0
 border-bottom-size  = 0
 border-bottom-color = ${colors.foreground}
 
-padding-left        = 5
-padding-right       = 15
+padding-left        = 0
+padding-right       = 20
 
 module-margin-left  = 1
 module-margin-right = 1
 
-font-0              = Iosevka Nerd Font:style=Regular:pixelsize=12;1
-; font-0              = Clear Sans Light:style=Light:pixelsize=13;1
+; font-0              = Iosevka Nerd Font:style=Regular:pixelsize=12;1
+font-0              = Dina:style=Regular
 ; font-1              = unifont:fontformat=truetype:size=5:antialias=false;0
 font-2              = FontAwesome:style=Regular:pixelsize=10;1
 font-3              = siji:pixelsize=5;1
@@ -229,8 +237,8 @@ font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;0"
 
 separator           = |
 modules-left        = i3 xwindow
-modules-right       = cpu ram battery vol
 modules-center      = date
+modules-right       = cpu ram battery vol
 ; modules-right       = memory pulseaudio battery powermenu
 ; modules-right = runfan memory network colors-switch pulseaudio battery xbacklight checknetwork time date sysmenu
 ; modules-center      = spotify
@@ -241,16 +249,14 @@ tray-detached       = true
 tray-maxsize        = 20
 tray-transparent    = false
 tray-background     = ${colors.background}
-tray-offset-x       = -10
+tray-offset-x       = -20
 tray-offset-y       = 0
 tray-padding        = 2
 tray-scale          = 1.0
 ; 
-; padding-right = 50
-
 wm-restack          = i3
-enable-ipc = true
 ; override-redirect   = true
+enable-ipc = true
 ;scroll-up            = bspwm-desknext
 ;scroll-down          = bspwm-deskprev
 ;scroll-up            = i3wm-wsnext
@@ -356,7 +362,7 @@ interval = 3
 format = <label>
 format-prefix = 
 format-foreground = #d08770
-format-background = #2e3440
+; format-background = #2e3440
 format-prefix-foreground = #d08770
 label = " %mb_used%"
 
@@ -365,7 +371,7 @@ label = " %mb_used%"
 type = internal/cpu
 interval = 1
 format-foreground = #5e81ac
-format-background = #2e3440
+; format-background = #2e3440
 ;format-underline = #5e81ac
 format-prefix = 
 format-prefix-foreground = #5e81ac
@@ -544,7 +550,7 @@ time-alt = %H:%M:%S
 label    = %date% %time%
 ;format-prefix-foreground = #8fbcbb
 format-foreground = #d8dee9
-format-background = #2e3440
+; format-background = #2e3440
 
 
 [module/wireless-network]
@@ -595,9 +601,9 @@ label-maxlen        = 50
 
 ;##############################################################################
 [module/powermenu]
-type                = custom/menu
-expand-right        = true
-format-spacing      = 1
+type                       = custom/menu
+expand-right               = true
+format-spacing             = 1
 label-open                 = 
 label-open-foreground      = ${colors.secondary}
 ; label-close                = cancel

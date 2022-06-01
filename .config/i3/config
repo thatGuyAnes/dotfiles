@@ -349,15 +349,19 @@ client.urgent           #cc241d   #cc241d   #FFFFFF   #cc241d   #cc241d
 #---------------------------------------------------------------- INITIALIZATION
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# exec_always --no-startup-id ~/.config/polybar/launch_multimonitor.sh
+exec_always --no-startup-id ~/.config/polybar/launch_multimonitor.sh
 exec_always --no-startup-id ~/.config/i3/startup.sh
+
+
+exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # exec --no-startup-id conky
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id redshift-gtk
 
 # exec --no-startup-id xrandr --output VGA-1 --auto --left-of eDP-1   # second monitor as VGA
+# second monitor as HDMI
+exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1  
 # exec --no-startup-id Urxvt
 
 # Using feh to setup a wallpaper:
@@ -386,7 +390,7 @@ exec --no-startup-id dnfdragora-updater
 exec_always --no-startup-id xfce4-power-manager
 
 # exec_always --no-startup-id xfce4-panel --disable-wm-check
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
 
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet

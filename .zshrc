@@ -11,7 +11,6 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/anes/.oh-my-zsh"
 
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -74,8 +73,7 @@ plugins=(
   vi-mode
 )
 
-
-VI_MODE_SET_CURSOR=true
+VI_MODE_SET_CURSOR=false
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,6 +118,7 @@ alias jctl="journalctl -p 3 -xb"
 # use nvim
 alias v="nvim"
 alias vim ="nvim"
+alias vi="nvim"
 
 # increase volume in i3.
 alias vinc="pactl set-sink-volume @DEFAULT_SINK@ +10%"
@@ -263,6 +262,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$HOME/bin:$PATH"
+
 #----------------------------------------------------------------------FUNCTIONS
 
 # Create folder and cd.
@@ -270,3 +272,23 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 # Switch git branch using fzf
 function gcf() { git checkout $(git branch -r | fzf) }
+
+PATH="/home/anes/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/anes/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/anes/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT; PERL_MB_OPT="--install_base \"/home/anes/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/anes/perl5"; export PERL_MM_OPT;
+
+export PATH="$HOME/.emacs.d/bin:$PATH"
+alias emacs="emacsclient -c -a 'emacs'"
+
+alias luamake=/luamake
+
+export PATH="$HOME/tools/lua-language-server/bin/Linux:$PATH"
+
+# RVM
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to path for scripting (to manage Ruby versions)
+# export PATH="$GEM_HOME/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+unset GEM_HOME
